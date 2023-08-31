@@ -8,7 +8,8 @@
 import SwiftUI
 
 @main
-struct PeekMovie_TCAApp: App {
+struct PeekMovieApplication: App {
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

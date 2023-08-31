@@ -7,19 +7,63 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07675FEA2AA0C0C20024E714 /* PeekMovie_TCAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07675FE92AA0C0C20024E714 /* PeekMovie_TCAApp.swift */; };
+		07675FEA2AA0C0C20024E714 /* PeekMovieApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07675FE92AA0C0C20024E714 /* PeekMovieApplication.swift */; };
 		07675FEC2AA0C0C20024E714 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07675FEB2AA0C0C20024E714 /* ContentView.swift */; };
 		07675FEE2AA0C0C70024E714 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07675FED2AA0C0C70024E714 /* Assets.xcassets */; };
 		07675FF12AA0C0C70024E714 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07675FF02AA0C0C70024E714 /* Preview Assets.xcassets */; };
+		07675FFA2AA0C4450024E714 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 07675FF92AA0C4450024E714 /* ComposableArchitecture */; };
+		07675FFD2AA0C6CA0024E714 /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07675FFC2AA0C6CA0024E714 /* ApplicationDelegate.swift */; };
+		07675FFF2AA0C7790024E714 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07675FFE2AA0C7790024E714 /* Application.swift */; };
+		076760012AA0C93D0024E714 /* ApplicationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076760002AA0C93D0024E714 /* ApplicationScreen.swift */; };
+		076760032AA0CA420024E714 /* ApplicationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076760022AA0CA420024E714 /* ApplicationView.swift */; };
+		076760082AA0CC4E0024E714 /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076760072AA0CC4E0024E714 /* Splash.swift */; };
+		0767600B2AA0CDC70024E714 /* CountdownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0767600A2AA0CDC70024E714 /* CountdownTimer.swift */; };
+		0767600D2AA0D06B0024E714 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0767600C2AA0D06B0024E714 /* SplashView.swift */; };
+		076760112AA0D2280024E714 /* View+AdaptiveFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076760102AA0D2280024E714 /* View+AdaptiveFont.swift */; };
+		076760132AA0D2670024E714 /* FontKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076760122AA0D2670024E714 /* FontKind.swift */; };
+		076760152AA0D3140024E714 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076760142AA0D3140024E714 /* Fonts.swift */; };
+		076760252AA0D3BB0024E714 /* AdaptiveSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076760242AA0D3BB0024E714 /* AdaptiveSize.swift */; };
+		076760272AA0D4360024E714 /* AdaptiveFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076760262AA0D4360024E714 /* AdaptiveFrame.swift */; };
+		076760292AA0D4B10024E714 /* CGSize+square.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076760282AA0D4B10024E714 /* CGSize+square.swift */; };
+		0767602B2AA0D5040024E714 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0767602A2AA0D5040024E714 /* Assets.swift */; };
+		0767602D2AA0D5BA0024E714 /* View+OnFirstAppear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0767602C2AA0D5BA0024E714 /* View+OnFirstAppear.swift */; };
+		0767602F2AA0D6B80024E714 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0767602E2AA0D6B80024E714 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		07675FE62AA0C0C20024E714 /* PeekMovie-TCA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PeekMovie-TCA.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		07675FE92AA0C0C20024E714 /* PeekMovie_TCAApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeekMovie_TCAApp.swift; sourceTree = "<group>"; };
+		07675FE92AA0C0C20024E714 /* PeekMovieApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeekMovieApplication.swift; sourceTree = "<group>"; };
 		07675FEB2AA0C0C20024E714 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		07675FED2AA0C0C70024E714 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07675FF02AA0C0C70024E714 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		07675FF72AA0C1810024E714 /* peekmovie-core */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = "peekmovie-core"; sourceTree = "<group>"; };
+		07675FFC2AA0C6CA0024E714 /* ApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDelegate.swift; sourceTree = "<group>"; };
+		07675FFE2AA0C7790024E714 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		076760002AA0C93D0024E714 /* ApplicationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationScreen.swift; sourceTree = "<group>"; };
+		076760022AA0CA420024E714 /* ApplicationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationView.swift; sourceTree = "<group>"; };
+		076760072AA0CC4E0024E714 /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
+		0767600A2AA0CDC70024E714 /* CountdownTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownTimer.swift; sourceTree = "<group>"; };
+		0767600C2AA0D06B0024E714 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		076760102AA0D2280024E714 /* View+AdaptiveFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+AdaptiveFont.swift"; sourceTree = "<group>"; };
+		076760122AA0D2670024E714 /* FontKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontKind.swift; sourceTree = "<group>"; };
+		076760142AA0D3140024E714 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		076760182AA0D3640024E714 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Bold.ttf"; path = "../../../../../../Desktop/Design/Fonts/Roboto/Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		076760192AA0D3640024E714 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-ThinItalic.ttf"; path = "../../../../../../Desktop/Design/Fonts/Roboto/Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		0767601A2AA0D3640024E714 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-MediumItalic.ttf"; path = "../../../../../../Desktop/Design/Fonts/Roboto/Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		0767601B2AA0D3640024E714 /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-BoldItalic.ttf"; path = "../../../../../../Desktop/Design/Fonts/Roboto/Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
+		0767601C2AA0D3640024E714 /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-LightItalic.ttf"; path = "../../../../../../Desktop/Design/Fonts/Roboto/Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		0767601D2AA0D3640024E714 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Medium.ttf"; path = "../../../../../../Desktop/Design/Fonts/Roboto/Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		0767601E2AA0D3640024E714 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Black.ttf"; path = "../../../../../../Desktop/Design/Fonts/Roboto/Roboto-Black.ttf"; sourceTree = "<group>"; };
+		0767601F2AA0D3640024E714 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Italic.ttf"; path = "../../../../../../Desktop/Design/Fonts/Roboto/Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		076760202AA0D3640024E714 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Light.ttf"; path = "../../../../../../Desktop/Design/Fonts/Roboto/Roboto-Light.ttf"; sourceTree = "<group>"; };
+		076760212AA0D3640024E714 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Regular.ttf"; path = "../../../../../../Desktop/Design/Fonts/Roboto/Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		076760222AA0D3640024E714 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Thin.ttf"; path = "../../../../../../Desktop/Design/Fonts/Roboto/Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		076760232AA0D3640024E714 /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-BlackItalic.ttf"; path = "../../../../../../Desktop/Design/Fonts/Roboto/Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
+		076760242AA0D3BB0024E714 /* AdaptiveSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveSize.swift; sourceTree = "<group>"; };
+		076760262AA0D4360024E714 /* AdaptiveFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveFrame.swift; sourceTree = "<group>"; };
+		076760282AA0D4B10024E714 /* CGSize+square.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+square.swift"; sourceTree = "<group>"; };
+		0767602A2AA0D5040024E714 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		0767602C2AA0D5BA0024E714 /* View+OnFirstAppear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+OnFirstAppear.swift"; sourceTree = "<group>"; };
+		0767602E2AA0D6B80024E714 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07675FFA2AA0C4450024E714 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -36,7 +81,6 @@
 		07675FDD2AA0C0C10024E714 = {
 			isa = PBXGroup;
 			children = (
-				07675FF72AA0C1810024E714 /* peekmovie-core */,
 				07675FE82AA0C0C20024E714 /* PeekMovie-TCA */,
 				07675FE72AA0C0C20024E714 /* Products */,
 			);
@@ -53,8 +97,14 @@
 		07675FE82AA0C0C20024E714 /* PeekMovie-TCA */ = {
 			isa = PBXGroup;
 			children = (
-				07675FE92AA0C0C20024E714 /* PeekMovie_TCAApp.swift */,
+				07675FE92AA0C0C20024E714 /* PeekMovieApplication.swift */,
 				07675FEB2AA0C0C20024E714 /* ContentView.swift */,
+				07675FFB2AA0C67D0024E714 /* Application */,
+				076760092AA0CDAB0024E714 /* Service */,
+				0767600E2AA0D20B0024E714 /* Utils */,
+				076760062AA0CC310024E714 /* Splash */,
+				076760042AA0CC200024E714 /* SignIn */,
+				076760052AA0CC2B0024E714 /* Lobby */,
 				07675FED2AA0C0C70024E714 /* Assets.xcassets */,
 				07675FEF2AA0C0C70024E714 /* Preview Content */,
 			);
@@ -67,6 +117,100 @@
 				07675FF02AA0C0C70024E714 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		07675FFB2AA0C67D0024E714 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				07675FFE2AA0C7790024E714 /* Application.swift */,
+				07675FFC2AA0C6CA0024E714 /* ApplicationDelegate.swift */,
+				076760002AA0C93D0024E714 /* ApplicationScreen.swift */,
+				076760022AA0CA420024E714 /* ApplicationView.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		076760042AA0CC200024E714 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		076760052AA0CC2B0024E714 /* Lobby */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Lobby;
+			sourceTree = "<group>";
+		};
+		076760062AA0CC310024E714 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				076760072AA0CC4E0024E714 /* Splash.swift */,
+				0767600C2AA0D06B0024E714 /* SplashView.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		076760092AA0CDAB0024E714 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				0767600A2AA0CDC70024E714 /* CountdownTimer.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		0767600E2AA0D20B0024E714 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				076760162AA0D3390024E714 /* Font */,
+				0767600F2AA0D21B0024E714 /* Extension */,
+				076760242AA0D3BB0024E714 /* AdaptiveSize.swift */,
+				076760262AA0D4360024E714 /* AdaptiveFrame.swift */,
+				0767602A2AA0D5040024E714 /* Assets.swift */,
+				0767602E2AA0D6B80024E714 /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		0767600F2AA0D21B0024E714 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				076760102AA0D2280024E714 /* View+AdaptiveFont.swift */,
+				076760282AA0D4B10024E714 /* CGSize+square.swift */,
+				0767602C2AA0D5BA0024E714 /* View+OnFirstAppear.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		076760162AA0D3390024E714 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				076760172AA0D3430024E714 /* ttf */,
+				076760142AA0D3140024E714 /* Fonts.swift */,
+				076760122AA0D2670024E714 /* FontKind.swift */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		076760172AA0D3430024E714 /* ttf */ = {
+			isa = PBXGroup;
+			children = (
+				0767601E2AA0D3640024E714 /* Roboto-Black.ttf */,
+				076760232AA0D3640024E714 /* Roboto-BlackItalic.ttf */,
+				076760182AA0D3640024E714 /* Roboto-Bold.ttf */,
+				0767601B2AA0D3640024E714 /* Roboto-BoldItalic.ttf */,
+				0767601F2AA0D3640024E714 /* Roboto-Italic.ttf */,
+				076760202AA0D3640024E714 /* Roboto-Light.ttf */,
+				0767601C2AA0D3640024E714 /* Roboto-LightItalic.ttf */,
+				0767601D2AA0D3640024E714 /* Roboto-Medium.ttf */,
+				0767601A2AA0D3640024E714 /* Roboto-MediumItalic.ttf */,
+				076760212AA0D3640024E714 /* Roboto-Regular.ttf */,
+				076760222AA0D3640024E714 /* Roboto-Thin.ttf */,
+				076760192AA0D3640024E714 /* Roboto-ThinItalic.ttf */,
+			);
+			path = ttf;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -85,6 +229,9 @@
 			dependencies = (
 			);
 			name = "PeekMovie-TCA";
+			packageProductDependencies = (
+				07675FF92AA0C4450024E714 /* ComposableArchitecture */,
+			);
 			productName = "PeekMovie-TCA";
 			productReference = 07675FE62AA0C0C20024E714 /* PeekMovie-TCA.app */;
 			productType = "com.apple.product-type.application";
@@ -113,6 +260,9 @@
 				Base,
 			);
 			mainGroup = 07675FDD2AA0C0C10024E714;
+			packageReferences = (
+				07675FF82AA0C4450024E714 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = 07675FE72AA0C0C20024E714 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -139,8 +289,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				076760082AA0CC4E0024E714 /* Splash.swift in Sources */,
+				076760112AA0D2280024E714 /* View+AdaptiveFont.swift in Sources */,
+				0767600B2AA0CDC70024E714 /* CountdownTimer.swift in Sources */,
+				076760132AA0D2670024E714 /* FontKind.swift in Sources */,
+				0767602D2AA0D5BA0024E714 /* View+OnFirstAppear.swift in Sources */,
+				076760152AA0D3140024E714 /* Fonts.swift in Sources */,
+				076760252AA0D3BB0024E714 /* AdaptiveSize.swift in Sources */,
+				076760292AA0D4B10024E714 /* CGSize+square.swift in Sources */,
+				07675FFF2AA0C7790024E714 /* Application.swift in Sources */,
+				076760272AA0D4360024E714 /* AdaptiveFrame.swift in Sources */,
+				07675FFD2AA0C6CA0024E714 /* ApplicationDelegate.swift in Sources */,
+				0767602B2AA0D5040024E714 /* Assets.swift in Sources */,
 				07675FEC2AA0C0C20024E714 /* ContentView.swift in Sources */,
-				07675FEA2AA0C0C20024E714 /* PeekMovie_TCAApp.swift in Sources */,
+				076760012AA0C93D0024E714 /* ApplicationScreen.swift in Sources */,
+				07675FEA2AA0C0C20024E714 /* PeekMovieApplication.swift in Sources */,
+				076760032AA0CA420024E714 /* ApplicationView.swift in Sources */,
+				0767600D2AA0D06B0024E714 /* SplashView.swift in Sources */,
+				0767602F2AA0D6B80024E714 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +507,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		07675FF82AA0C4450024E714 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		07675FF92AA0C4450024E714 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 07675FF82AA0C4450024E714 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 07675FDE2AA0C0C10024E714 /* Project object */;
 }
