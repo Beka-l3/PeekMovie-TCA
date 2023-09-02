@@ -18,17 +18,19 @@ public struct ApplicationScreen: Reducer {
         Reduce { _, _ in
             return .none
         }
+        .ifCaseLet(/State.signIn, action: /Action.signIn) {
+            SignIn()
+        }
         .ifCaseLet(/State.splash, action: /Action.splash) {
             Splash()
         }
-        
     }
 }
 
 extension ApplicationScreen {
     
     public enum Action: Equatable, Sendable {
-        case signIn
+        case signIn(SignIn.Action)
         case lobby
         case splash(Splash.Action)
     }
@@ -39,7 +41,7 @@ extension ApplicationScreen {
     
     public enum State: Equatable, Identifiable, Sendable {
 
-        case signIn
+        case signIn(SignIn.State)
         case lobby
         case splash(Splash.State)
 

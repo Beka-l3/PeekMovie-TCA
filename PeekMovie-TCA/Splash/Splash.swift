@@ -14,6 +14,10 @@ public struct Splash: Reducer {
     }
     
     public var body: some ReducerOf<Self> {
+        Scope(state: \.timer, action: /Action.timer) {
+            CountdownTimer()
+        }
+        
         Reduce { _, action in
             switch action {
                 
@@ -21,6 +25,7 @@ public struct Splash: Reducer {
                 return .none
                 
             case .timer(.delegate(.didExpire)):
+                print("\n case .timer(.delegate(.didExpire)): \n")
                 return .send(.delegate(.shouldClose))
                 
             case .timer:

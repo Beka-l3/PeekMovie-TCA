@@ -22,7 +22,7 @@ public final class ApplicationDelegate: NSObject, UIApplicationDelegate {
 
     public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil ) -> Bool {
 //        firebase.configure()
-//        store.send(.delegate(.didFinishLaunching))
+        store.send(.delegate(.didFinishLaunching))
         return true
     }
 

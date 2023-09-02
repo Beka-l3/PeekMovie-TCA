@@ -10,7 +10,7 @@ import ComposableArchitecture
 public struct SignIn: Reducer {
     
 //    @Dependency(\.toastClient) private var toastClient
-//    @Dependency(\.userClient) private var userClient
+    @Dependency(\.userClient) private var userClient
     
     public init() {
         
@@ -21,20 +21,27 @@ public struct SignIn: Reducer {
             switch action {
             case .delegate:
                 return.none
-                
-            case .view(.didTapContinueButton):
-                return .send(._private(.continueToPassword))
+            
+            case let .view(.didTapContinueButton(username)):
+                return .send(._private(.checkUsername(username)))
+            
+            case let .view(.usernameTextFieldDidChange(newValue)):
+                print("\nUsername: \(newValue)")
+                state.username = newValue
+                return .none
                 
             case let ._private(.setIsPerformingUsernameCheck(isPerformingUsernameCheck)):
                 state.isPerformingUsernameCheck = isPerformingUsernameCheck
                 return .none
                 
-            case ._private(.continueToPassword):
+            case let ._private(.checkUsername(username)):
                 return .run { send in
                     await send(._private(.setIsPerformingUsernameCheck(true)))
                     do {
-//                        try await userClient.signIn()
-                        try await Task.sleep(nanoseconds: 2 * 1000000000)
+                        print("\ncase let ._private(.checkUsername(username)):\n")
+                        try await userClient.checkUsername(username)
+                        print("\ntry await userClient.checkUsername(username)\n")
+//                        try await Task.sleep(nanoseconds: 2 * 1000000000)
                         await send(._private(.setIsPerformingUsernameCheck(false)))
                         await send(.delegate(.usernameExists))
 //                    } catch UserClient.Error.usernameDoesnotExist {
@@ -68,14 +75,15 @@ extension SignIn.Action {
 
 extension SignIn.Action {
     public enum View: Equatable, Sendable {
-        case didTapContinueButton
+        case didTapContinueButton(String)
+        case usernameTextFieldDidChange(String)
     }
 }
 
 extension SignIn.Action {
     public enum Private: Equatable, Sendable {
         case setIsPerformingUsernameCheck(Bool)
-        case continueToPassword
+        case checkUsername(String)
     }
 }
 
@@ -84,7 +92,7 @@ extension SignIn.Action {
 extension SignIn {
     public struct State: Equatable, Sendable {
         
-        @BindingState var username: String
+        public var username: String
         
         public let headerTitle: String
         public let headerDescription: String

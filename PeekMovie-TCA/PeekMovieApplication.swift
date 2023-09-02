@@ -10,9 +10,12 @@ import SwiftUI
 @main
 struct PeekMovieApplication: App {
     
+    @UIApplicationDelegateAdaptor(ApplicationDelegate.self) private var appDelegate
+    @Environment(\.scenePhase) private var scenePhase
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ApplicationView(store: appDelegate.store)
         }
     }
 }
