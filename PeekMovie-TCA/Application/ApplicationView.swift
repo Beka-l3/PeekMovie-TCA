@@ -23,12 +23,12 @@ public struct ApplicationView: View {
             )) { screenState in
                 Group {
                     switch screenState {
-//                    case .signIn:
-//                        CaseLet(
-//                            /Application.State.signIn,
-//                             action: ApplicationScreen.Action.signIn,
-//                             then: SignInView.init
-//                        )
+                    case .signIn:
+                        CaseLet(
+                            /ApplicationScreen.State.signIn,
+                             action: ApplicationScreen.Action.signIn,
+                             then: SignInView.init
+                        )
 //                    case .lobby:
 //                        CaseLet(
 //                            /Application.State.lobby,

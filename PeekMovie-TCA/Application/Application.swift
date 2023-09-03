@@ -25,12 +25,14 @@ public struct Application: Reducer {
             case .delegate(.didFinishLaunching):
                 return .send(._private(.setupOnLaunch))
                 
+                
             case .screen(.splash(.delegate(.shouldClose))):
                 print("\n case .screen(.splash(.delegate(.shouldClose))): \n")
                 return .send(._private(.setSplashFinished))
                 
             case .screen(_):
                 return .none
+                
                 
             case ._private(.setSetupOnLaunchFinished):
                 state.isSetupOnLaunchFinished = true
@@ -52,11 +54,15 @@ public struct Application: Reducer {
                     state.screen = .signIn(.init())
                 }
                 return .none
+            
+            case let ._private(.setPreferredScreenAfterLaunch(newValue)):
+                state.preferredScreenAfterLaunch = newValue
+                return .none
                 
             case ._private(.setupOnLaunch):
                 print("\n case ._private(.setupOnLaunch): \n")
                 return .run { send in
-                    
+                    await send(._private(.setPreferredScreenAfterLaunch(.signIn)))
                     
                     await send(._private(.setSetupOnLaunchFinished))
                 }
@@ -86,6 +92,7 @@ extension Application.Action {
         case setSplashFinished
         case setScreenAfterLaunch
         case setSetupOnLaunchFinished
+        case setPreferredScreenAfterLaunch(Application.State.PreferredScreenAfterLaunch)
     }
 }
 
