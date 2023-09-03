@@ -8,11 +8,11 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct SignInView: View {
+struct UsernameView: View {
     
-    private let store: StoreOf<SignIn>
+    private let store: StoreOf<Entrance>
     
-    init(store: StoreOf<SignIn>) {
+    init(store: StoreOf<Entrance>) {
         self.store = store
     }
     
@@ -47,7 +47,7 @@ struct SignInView: View {
                         }
                     
                     Button {
-                        print("\nContinue tapped")
+                        viewStore.send(.view(.didTapContinueButton))
                     } label: {
                         Text("Continue")
                             .foregroundColor(.white)
@@ -56,6 +56,8 @@ struct SignInView: View {
                             .font(.system(size: 20, weight: .bold))
                             .cornerRadius(10)
                     }
+                    .disabled(viewStore.isPerformingUsernameCheck)
+                    
                     
                     Spacer()
                     
@@ -78,9 +80,9 @@ struct SignInView: View {
 
 struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
-        SignInView(store: .init(
+        UsernameView(store: .init(
             initialState: .init()) {
-                SignIn()
+                Entrance()
             }
         )
     }

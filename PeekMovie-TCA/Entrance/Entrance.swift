@@ -7,7 +7,7 @@
 
 import ComposableArchitecture
 
-public struct SignIn: Reducer {
+public struct Entrance: Reducer {
     
 //    @Dependency(\.toastClient) private var toastClient
     @Dependency(\.userClient) private var userClient
@@ -21,78 +21,65 @@ public struct SignIn: Reducer {
             switch action {
             case .delegate:
                 return.none
-            
-            case let .view(.didTapContinueButton(username)):
-                return .send(._private(.checkUsername(username)))
-            
-            case let .view(.usernameTextFieldDidChange(newValue)):
-                print("\nUsername: \(newValue)")
-                state.username = newValue
+                
+            case .username(_):
                 return .none
                 
             case let ._private(.setIsPerformingUsernameCheck(isPerformingUsernameCheck)):
                 state.isPerformingUsernameCheck = isPerformingUsernameCheck
                 return .none
                 
-            case let ._private(.checkUsername(username)):
+            case ._private(.checkUsername):
+                let username = state.username.username
                 return .run { send in
                     await send(._private(.setIsPerformingUsernameCheck(true)))
                     do {
-                        print("\ncase let ._private(.checkUsername(username)):\n")
                         try await userClient.checkUsername(username)
-                        print("\ntry await userClient.checkUsername(username)\n")
-//                        try await Task.sleep(nanoseconds: 2 * 1000000000)
                         await send(._private(.setIsPerformingUsernameCheck(false)))
-                        await send(.delegate(.usernameExists))
-//                    } catch UserClient.Error.usernameDoesnotExist {
-//                        await send(._private(.setIsPerformingUsernameCheck(false)))
-//                        await send(.delegate(.usernameDoesnotExist))
+                        await send(._private(.usernameExists))
                     } catch {
-//                        log.error("Cannot sign in due to \(error).")
                         await send(._private(.setIsPerformingUsernameCheck(false)))
                     }
                 }
+                
+            case ._private:
+                return .none
             }
         }
     }
 }
 
 // MARK: - Action
-extension SignIn {
+extension Entrance {
     public enum Action: Equatable, Sendable {
         case delegate(Delegate)
-        case view(View)
+        case username(Username.Action)
         case _private(Private)
     }
 }
 
-extension SignIn.Action {
+extension Entrance.Action {
     public enum Delegate: Equatable, Sendable {
-        case usernameExists
-        case usernameDoesnotExist
+        case signedInSuccesfully
+        case registeredSuccesfully
     }
 }
 
-extension SignIn.Action {
-    public enum View: Equatable, Sendable {
-        case didTapContinueButton(String)
-        case usernameTextFieldDidChange(String)
-    }
-}
-
-extension SignIn.Action {
+extension Entrance.Action {
     public enum Private: Equatable, Sendable {
         case setIsPerformingUsernameCheck(Bool)
-        case checkUsername(String)
+        case checkUsername
+        case usernameExists
+        case usernameDoesNotExist
     }
 }
 
 
 // MARK: - State
-extension SignIn {
+extension Entrance {
     public struct State: Equatable, Sendable {
         
-        public var username: String
+        public let username: Username.State
         
         public let headerTitle: String
         public let headerDescription: String
@@ -100,7 +87,7 @@ extension SignIn {
         public var isPerformingUsernameCheck: Bool
 
         public init(
-            username: String = .empty,
+            username: Username.State = .init(),
             headerTitle: String = L10n.signInHeaderTitle,
             headerDescription: String = L10n.signInHeaderDescription,
             footerDescription: String = L10n.signInFooterMarkdownText,

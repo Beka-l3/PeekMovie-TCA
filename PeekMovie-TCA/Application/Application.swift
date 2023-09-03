@@ -22,6 +22,7 @@ public struct Application: Reducer {
         
         Reduce { state, action in
             switch action {
+            
             case .delegate(.didFinishLaunching):
                 return .send(._private(.setupOnLaunch))
                 
@@ -50,8 +51,8 @@ public struct Application: Reducer {
                 switch state.preferredScreenAfterLaunch {
                 case .lobby:
                     state.screen = .lobby
-                case .signIn:
-                    state.screen = .signIn(.init())
+                case .entrance:
+                    state.screen = .entrance(.init())
                 }
                 return .none
             
@@ -62,7 +63,7 @@ public struct Application: Reducer {
             case ._private(.setupOnLaunch):
                 print("\n case ._private(.setupOnLaunch): \n")
                 return .run { send in
-                    await send(._private(.setPreferredScreenAfterLaunch(.signIn)))
+                    await send(._private(.setPreferredScreenAfterLaunch(.entrance)))
                     
                     await send(._private(.setSetupOnLaunchFinished))
                 }
@@ -125,7 +126,7 @@ extension Application {
             return State(
                 isSetupOnLaunchFinished: false,
                 isSplashFinished: false,
-                preferredScreenAfterLaunch: .signIn,
+                preferredScreenAfterLaunch: .entrance,
                 screen: .splash(.init(
                     timer: .init(totalTicks: Constants.Splash.splashDurationInSeconds),
                     title: "Peek Movie"
@@ -138,6 +139,6 @@ extension Application {
 extension Application.State {
     public enum PreferredScreenAfterLaunch: Equatable, Sendable {
         case lobby
-        case signIn
+        case entrance
     }
 }
