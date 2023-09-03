@@ -10,9 +10,9 @@ import ComposableArchitecture
 
 struct UsernameView: View {
     
-    private let store: StoreOf<Entrance>
+    private let store: StoreOf<Username>
     
-    init(store: StoreOf<Entrance>) {
+    init(store: StoreOf<Username>) {
         self.store = store
     }
     
@@ -30,7 +30,7 @@ struct UsernameView: View {
                         .padding(24)
                         .padding(.top, 120)
                     
-                    TextField("Username", text: viewStore.binding(get: \.username, send: { .view(.usernameTextFieldDidChange($0)) } ))
+                    TextField("Username", text: viewStore.binding(get: \.username, send: { .view(.didChangeUsername($0)) } ))
                         .autocorrectionDisabled()
                         .frame(maxWidth: 240)
                         .padding()
@@ -47,7 +47,7 @@ struct UsernameView: View {
                         }
                     
                     Button {
-                        viewStore.send(.view(.didTapContinueButton))
+                        viewStore.send(.view(.didTapOnContinue))
                     } label: {
                         Text("Continue")
                             .foregroundColor(.white)
@@ -82,7 +82,7 @@ struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
         UsernameView(store: .init(
             initialState: .init()) {
-                Entrance()
+                Username()
             }
         )
     }
