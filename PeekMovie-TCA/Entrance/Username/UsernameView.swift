@@ -17,8 +17,10 @@ struct UsernameView: View {
     }
     
     var body: some View {
-        WithViewStore(store, observe: { $0 }) { viewStore in
-            NavigationStack {
+        NavigationStackStore(
+            self.store.scope(state: \.path, action: Username.Action.path)
+        ) {
+            WithViewStore(store, observe: { $0 }) { viewStore in
                 ZStack {
                     Color(.orange)
                         .ignoresSafeArea()
@@ -47,27 +49,23 @@ struct UsernameView: View {
                                     .stroke(lineWidth: 2)
                             }
                         
-                        NavigationLink {
-                            PasswordView()
-                        } label: {
-                            Text("Continue")
-                                .foregroundColor(.white)
-                                .frame(width: 280, height: 50)
-                                .background(.black)
-                                .font(.system(size: 20, weight: .bold))
-                                .cornerRadius(10)
-                        }
-
                         
                         Button {
                             viewStore.send(.view(.didTapOnContinue))
                         } label: {
-                            Text("Continue")
-                                .foregroundColor(.white)
-                                .frame(width: 280, height: 50)
-                                .background(.black)
-                                .font(.system(size: 20, weight: .bold))
-                                .cornerRadius(10)
+                            ZStack {
+                                Text("Continue")
+                                    .foregroundColor(.white.opacity(viewStore.isPerformingUsernameCheck ? 0.3 : 1))
+                                    .frame(width: 280, height: 50)
+                                    .background(.black.opacity(viewStore.isPerformingUsernameCheck ? 0.3 : 1))
+                                    .font(.system(size: 20, weight: .bold))
+                                    .cornerRadius(10)
+                                
+                                if viewStore.isFetching {
+                                    ProgressView()
+                                }
+                            }
+                                
                         }
                         .disabled(viewStore.isPerformingUsernameCheck)
                         
@@ -87,10 +85,27 @@ struct UsernameView: View {
                         .padding(.bottom, 40)
                     }
                 }
+                
+                
             }
-            
-            
+        } destination: {
+            switch $0 {
+            case .password:
+                CaseLet(
+                    /Username.Path.State.password,
+                     action: Username.Path.Action.password,
+                     then: PasswordView.init
+                )
+            case .registration:
+                CaseLet(
+                    /Username.Path.State.registration,
+                     action: Username.Path.Action.registration,
+                     then: RegistrationView.init
+                )
+            }
         }
+
+        
     }
 }
 

@@ -8,13 +8,13 @@
 import ComposableArchitecture
 
 
-public struct ApplicationScreen: Reducer {
+struct ApplicationScreen: Reducer {
     
-    public init() {
+    init() {
 
     }
     
-    public var body: some ReducerOf<Self> {
+    var body: some ReducerOf<Self> {
         Reduce { _, _ in
             return .none
         }
@@ -29,7 +29,7 @@ public struct ApplicationScreen: Reducer {
 
 extension ApplicationScreen {
     
-    public enum Action: Equatable, Sendable {
+    enum Action: Equatable, Sendable {
         case entrance(Entrance.Action)
         case lobby
         case splash(Splash.Action)
@@ -39,7 +39,7 @@ extension ApplicationScreen {
 
 extension ApplicationScreen {
     
-    public enum State: Equatable, Identifiable, Sendable {
+    enum State: Equatable, Identifiable, Sendable {
 
         case entrance(Entrance.State)
         case lobby
@@ -47,7 +47,7 @@ extension ApplicationScreen {
 
         // MARK: Exposed properties
 
-        public var id: String {
+        var id: String {
             switch self {
             case .entrance:
                 return "entrance"

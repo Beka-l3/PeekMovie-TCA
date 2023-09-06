@@ -7,43 +7,35 @@
 
 import ComposableArchitecture
 
-public struct Entrance: Reducer {
+struct Entrance: Reducer {
     
 //    @Dependency(\.toastClient) private var toastClient
     @Dependency(\.userClient) private var userClient
     
-    public init() {
+    init() {
         
     }
     
-    public var body: some ReducerOf<Self> {
+    var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
-            case .delegate:
-                return.none
-                
-            case .username(_):
+            case .path(.element(id: _, action: .username(.delegate(.checkUsername)))):
                 return .none
                 
-            case let ._private(.setIsPerformingUsernameCheck(isPerformingUsernameCheck)):
-                state.isPerformingUsernameCheck = isPerformingUsernameCheck
+            case .path:
                 return .none
                 
-            case ._private(.checkUsername):
-                let username = state.username.username
-                return .run { send in
-                    await send(._private(.setIsPerformingUsernameCheck(true)))
-                    do {
-                        try await userClient.checkUsername(username)
-                        await send(._private(.setIsPerformingUsernameCheck(false)))
-                        await send(._private(.usernameExists))
-                    } catch {
-                        await send(._private(.setIsPerformingUsernameCheck(false)))
-                    }
-                }
-                
-            case ._private:
-                return .none
+            }
+        }
+        .forEach(\.path, action: /Action.path) {
+            Scope(state: /State.Path.username, action: /Action.Path.username) {
+                Username()
+            }
+            Scope(state: /State.Path.password, action: /Action.Path.password) {
+                Password()
+            }
+            Scope(state: /State.Path.registration, action: /Action.Path.registration) {
+                Registration()
             }
         }
     }
@@ -51,70 +43,49 @@ public struct Entrance: Reducer {
 
 // MARK: - Action
 extension Entrance {
-    public enum Action: Equatable, Sendable {
-        case delegate(Delegate)
+    enum Action: Equatable, Sendable {
+        case path(StackAction<Entrance.State.Path, Entrance.Action.Path>)
+    }
+}
+
+extension Entrance.Action {
+    enum Delegate: Equatable, Sendable {
+        
+    }
+}
+
+extension Entrance.Action {
+    enum Private: Equatable, Sendable {
+        
+    }
+}
+
+extension Entrance.Action {
+    enum Path: Equatable, Sendable {
         case username(Username.Action)
-        case _private(Private)
+        case password(Password.Action)
+        case registration(Registration.Action)
     }
 }
-
-extension Entrance.Action {
-    public enum Delegate: Equatable, Sendable {
-        case signedInSuccesfully
-        case registeredSuccesfully
-    }
-}
-
-extension Entrance.Action {
-    public enum Private: Equatable, Sendable {
-        case setIsPerformingUsernameCheck(Bool)
-        case checkUsername
-        case usernameExists
-        case usernameDoesNotExist
-    }
-}
-
 
 // MARK: - State
 extension Entrance {
-    public struct State: Equatable, Sendable {
+    struct State: Equatable, Sendable {
         
-        public var path: StackState<Path>
+        var path: StackState<Path>
         
-        public let username: Username.State
-        
-        public let headerTitle: String
-        public let headerDescription: String
-        public let footerDescription: String
-        public var isPerformingUsernameCheck: Bool
-
-        public init(
-            username: Username.State = .init(),
-            headerTitle: String = L10n.signInHeaderTitle,
-            headerDescription: String = L10n.signInHeaderDescription,
-            footerDescription: String = L10n.signInFooterMarkdownText,
-            isPerformingUsernameCheck: Bool = false
+        init(
+            path: StackState<Path> = StackState([.username(.init())])
         ) {
-            self.username = username
-            self.headerTitle = headerTitle
-            self.headerDescription = headerDescription
-            self.footerDescription = footerDescription
-            self.isPerformingUsernameCheck = isPerformingUsernameCheck
+            self.path = path
         }
-        
     }
 }
 
 extension Entrance.State {
-
-    public enum Path: Equatable, Sendable {
-
-        // MARK: Case
-
-        case password
-
-        case registration
-
+    enum Path: Equatable, Sendable {
+        case username(Username.State)
+        case password(Password.State)
+        case registration(Registration.State)
     }
-
 }

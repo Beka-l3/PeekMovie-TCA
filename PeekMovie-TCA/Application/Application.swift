@@ -7,15 +7,15 @@
 
 import ComposableArchitecture
 
-public struct Application: Reducer {
+struct Application: Reducer {
     
     @Dependency(\.userClient) private var userClient
     
-    public init() {
+    init() {
         
     }
     
-    public var body: some ReducerOf<Self> {
+    var body: some ReducerOf<Self> {
         Scope(state: \.screen, action: /Action.screen) {
             ApplicationScreen()
         }
@@ -74,7 +74,7 @@ public struct Application: Reducer {
 
 // MARK: - Action
 extension Application {
-    public enum Action: Equatable, Sendable {
+    enum Action: Equatable, Sendable {
         case delegate(Delegate)
         case screen(ApplicationScreen.Action)
         case _private(Private)
@@ -82,13 +82,13 @@ extension Application {
 }
 
 extension Application.Action {
-    public enum Delegate: Equatable, Sendable {
+    enum Delegate: Equatable, Sendable {
         case didFinishLaunching
     }
 }
 
 extension Application.Action {
-    public enum Private: Equatable, Sendable {
+    enum Private: Equatable, Sendable {
         case setupOnLaunch
         case setSplashFinished
         case setScreenAfterLaunch

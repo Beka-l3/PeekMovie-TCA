@@ -8,14 +8,14 @@
 import SwiftUI
 import ComposableArchitecture
 
-public struct ApplicationView: View {
+struct ApplicationView: View {
     private let store: StoreOf<Application>
     
-    public init(store: StoreOf<Application>) {
+    init(store: StoreOf<Application>) {
         self.store = store
     }
     
-    public var body: some View {
+    var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
             SwitchStore(store.scope(
                 state: \.screen,

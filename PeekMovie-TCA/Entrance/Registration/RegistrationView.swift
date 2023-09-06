@@ -6,8 +6,14 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct RegistrationView: View {
+    
+    init(store: StoreOf<Registration>) {
+        
+    }
+    
     var body: some View {
         ZStack {
             Color(.brown)
@@ -19,6 +25,9 @@ struct RegistrationView: View {
 
 struct RegistrationView_Previews: PreviewProvider {
     static var previews: some View {
-        RegistrationView()
+        RegistrationView(store: .init(initialState: Registration.State()) {
+            Registration()
+        })
+                         
     }
 }

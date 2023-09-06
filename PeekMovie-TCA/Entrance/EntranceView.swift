@@ -8,16 +8,26 @@
 import SwiftUI
 import ComposableArchitecture
 
-public struct EntranceView: View {
+struct EntranceView: View {
     
     private let store: StoreOf<Entrance>
     
-    public init(store: StoreOf<Entrance>) {
+    init(store: StoreOf<Entrance>) {
         self.store = store
     }
     
-    public var body: some View {
-        Text("Entrance")
+    var body: some View {
+        NavigationStackStore( store.scope( state: \.path, action: Entrance.Action.path) ) {
+            WithViewStore(store, observe: { $0 }) { _ in
+                ZStack {
+                    Color(.black)
+                    
+                    Text("Entrance")
+                }
+            }
+        } destination: { pathStore in
+            
+        }
     }
 }
 

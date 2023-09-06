@@ -6,8 +6,14 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct PasswordView: View {
+    
+    init(store: StoreOf<Password>) {
+        
+    }
+    
     var body: some View {
         ZStack {
             Color(.green).ignoresSafeArea()
@@ -20,6 +26,8 @@ struct PasswordView: View {
 
 struct PasswordView_Previews: PreviewProvider {
     static var previews: some View {
-        PasswordView()
+        PasswordView(store: .init(initialState: Password.State()) {
+            Password()
+        })
     }
 }
