@@ -18,62 +18,78 @@ struct UsernameView: View {
     
     var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
-            ZStack {
-                Color(.orange)
-                    .ignoresSafeArea()
-                
-                VStack(spacing: 24) {
-                    Image("App Icon")
-                        .resizable()
-                        .frame(width: 120, height: 120)
-                        .cornerRadius(24)
-                        .padding(24)
-                        .padding(.top, 120)
+            NavigationStack {
+                ZStack {
+                    Color(.orange)
+                        .ignoresSafeArea()
                     
-                    TextField("Username", text: viewStore.binding(get: \.username, send: { .view(.didChangeUsername($0)) } ))
-                        .autocorrectionDisabled()
-                        .frame(maxWidth: 240)
-                        .padding()
-                        .background {
-                            Color(.black)
-                                .opacity(0.1)
+                    VStack(spacing: 24) {
+                        Image("App Icon")
+                            .resizable()
+                            .frame(width: 120, height: 120)
+                            .cornerRadius(24)
+                            .padding(24)
+                            .padding(.top, 120)
+                        
+                        TextField("Username", text: viewStore.binding(get: \.username, send: { .view(.didChangeUsername($0)) } ))
+                            .autocorrectionDisabled()
+                            .frame(maxWidth: 240)
+                            .padding()
+                            .background {
+                                Color(.black)
+                                    .opacity(0.1)
+                            }
+                            .mask {
+                                RoundedRectangle(cornerRadius: 16)
+                            }
+                            .overlay {
+                                RoundedRectangle(cornerRadius: 16)
+                                    .stroke(lineWidth: 2)
+                            }
+                        
+                        NavigationLink {
+                            PasswordView()
+                        } label: {
+                            Text("Continue")
+                                .foregroundColor(.white)
+                                .frame(width: 280, height: 50)
+                                .background(.black)
+                                .font(.system(size: 20, weight: .bold))
+                                .cornerRadius(10)
                         }
-                        .mask {
-                            RoundedRectangle(cornerRadius: 16)
+
+                        
+                        Button {
+                            viewStore.send(.view(.didTapOnContinue))
+                        } label: {
+                            Text("Continue")
+                                .foregroundColor(.white)
+                                .frame(width: 280, height: 50)
+                                .background(.black)
+                                .font(.system(size: 20, weight: .bold))
+                                .cornerRadius(10)
                         }
-                        .overlay {
-                            RoundedRectangle(cornerRadius: 16)
-                                .stroke(lineWidth: 2)
+                        .disabled(viewStore.isPerformingUsernameCheck)
+                        
+                        
+                        Spacer()
+                        
+                        Button {
+                            print("\nRegister tapped")
+                        } label: {
+                            Text("Register")
+                                .foregroundColor(.black)
+                                .frame(width: 280, height: 50)
+                                .background(.white)
+                                .font(.system(size: 20, weight: .bold))
+                                .cornerRadius(10)
                         }
-                    
-                    Button {
-                        viewStore.send(.view(.didTapOnContinue))
-                    } label: {
-                        Text("Continue")
-                            .foregroundColor(.white)
-                            .frame(width: 280, height: 50)
-                            .background(.black)
-                            .font(.system(size: 20, weight: .bold))
-                            .cornerRadius(10)
+                        .padding(.bottom, 40)
                     }
-                    .disabled(viewStore.isPerformingUsernameCheck)
-                    
-                    
-                    Spacer()
-                    
-                    Button {
-                        print("\nRegister tapped")
-                    } label: {
-                        Text("Register")
-                            .foregroundColor(.black)
-                            .frame(width: 280, height: 50)
-                            .background(.white)
-                            .font(.system(size: 20, weight: .bold))
-                            .cornerRadius(10)
-                    }
-                    .padding(.bottom, 40)
                 }
             }
+            
+            
         }
     }
 }

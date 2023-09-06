@@ -79,6 +79,8 @@ extension Entrance.Action {
 extension Entrance {
     public struct State: Equatable, Sendable {
         
+        public var path: StackState<Path>
+        
         public let username: Username.State
         
         public let headerTitle: String
@@ -101,4 +103,18 @@ extension Entrance {
         }
         
     }
+}
+
+extension Entrance.State {
+
+    public enum Path: Equatable, Sendable {
+
+        // MARK: Case
+
+        case password
+
+        case registration
+
+    }
+
 }

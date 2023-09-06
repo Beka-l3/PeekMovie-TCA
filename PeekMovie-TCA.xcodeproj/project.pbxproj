@@ -35,6 +35,10 @@
 		0767602B2AA0D5040024E714 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0767602A2AA0D5040024E714 /* Assets.swift */; };
 		0767602D2AA0D5BA0024E714 /* View+OnFirstAppear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0767602C2AA0D5BA0024E714 /* View+OnFirstAppear.swift */; };
 		0767602F2AA0D6B80024E714 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0767602E2AA0D6B80024E714 /* Constants.swift */; };
+		07F3143B2AA87CBB00B434ED /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F3143A2AA87CBB00B434ED /* PasswordView.swift */; };
+		07F3143D2AA87CFF00B434ED /* Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F3143C2AA87CFF00B434ED /* Password.swift */; };
+		07F314432AA8954200B434ED /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F314422AA8954200B434ED /* Registration.swift */; };
+		07F314452AA8955800B434ED /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F314442AA8955800B434ED /* RegistrationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +82,10 @@
 		0767602A2AA0D5040024E714 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		0767602C2AA0D5BA0024E714 /* View+OnFirstAppear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+OnFirstAppear.swift"; sourceTree = "<group>"; };
 		0767602E2AA0D6B80024E714 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		07F3143A2AA87CBB00B434ED /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
+		07F3143C2AA87CFF00B434ED /* Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password.swift; sourceTree = "<group>"; };
+		07F314422AA8954200B434ED /* Registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
+		07F314442AA8955800B434ED /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,8 +103,8 @@
 		073FDDC82AA4A6E600A263DF /* Username */ = {
 			isa = PBXGroup;
 			children = (
-				075155C82AA35A7000598BE8 /* UsernameView.swift */,
 				073FDDC92AA4A6FA00A263DF /* Username.swift */,
+				075155C82AA35A7000598BE8 /* UsernameView.swift */,
 			);
 			path = Username;
 			sourceTree = "<group>";
@@ -167,6 +175,8 @@
 				075155BF2AA32CA000598BE8 /* Entrance.swift */,
 				073FDDCB2AA4AEBD00A263DF /* EntranceView.swift */,
 				073FDDC82AA4A6E600A263DF /* Username */,
+				07F314392AA87CA900B434ED /* Password */,
+				07F314402AA8951400B434ED /* Registration */,
 			);
 			path = Entrance;
 			sourceTree = "<group>";
@@ -250,6 +260,24 @@
 			path = ttf;
 			sourceTree = "<group>";
 		};
+		07F314392AA87CA900B434ED /* Password */ = {
+			isa = PBXGroup;
+			children = (
+				07F3143C2AA87CFF00B434ED /* Password.swift */,
+				07F3143A2AA87CBB00B434ED /* PasswordView.swift */,
+			);
+			path = Password;
+			sourceTree = "<group>";
+		};
+		07F314402AA8951400B434ED /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				07F314422AA8954200B434ED /* Registration.swift */,
+				07F314442AA8955800B434ED /* RegistrationView.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -326,6 +354,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07F3143D2AA87CFF00B434ED /* Password.swift in Sources */,
 				075155C42AA333FF00598BE8 /* String+EmptyString.swift in Sources */,
 				073FDDCA2AA4A6FA00A263DF /* Username.swift in Sources */,
 				076760082AA0CC4E0024E714 /* Splash.swift in Sources */,
@@ -341,8 +370,11 @@
 				076760292AA0D4B10024E714 /* CGSize+square.swift in Sources */,
 				07675FFF2AA0C7790024E714 /* Application.swift in Sources */,
 				076760272AA0D4360024E714 /* AdaptiveFrame.swift in Sources */,
+				07F314452AA8955800B434ED /* RegistrationView.swift in Sources */,
+				07F314432AA8954200B434ED /* Registration.swift in Sources */,
 				075155C02AA32CA000598BE8 /* Entrance.swift in Sources */,
 				07675FFD2AA0C6CA0024E714 /* ApplicationDelegate.swift in Sources */,
+				07F3143B2AA87CBB00B434ED /* PasswordView.swift in Sources */,
 				075155C92AA35A7000598BE8 /* UsernameView.swift in Sources */,
 				0767602B2AA0D5040024E714 /* Assets.swift in Sources */,
 				07675FEC2AA0C0C20024E714 /* ContentView.swift in Sources */,
