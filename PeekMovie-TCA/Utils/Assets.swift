@@ -42,6 +42,7 @@ public enum Asset {
     public static let monteCarlo = ColorAsset(name: "MonteCarlo")
     public static let paradiso = ColorAsset(name: "Paradiso")
   }
+    
 //  public enum Image {
 //    public static let calendar = ImageAsset(name: "calendar")
 //    public static let camera = ImageAsset(name: "camera")
@@ -51,6 +52,7 @@ public enum Asset {
 //      public static let other = ImageAsset(name: "other")
 //    }
 //    public enum Icon {
+//        public static let app = ImageAsset(name: "App Icon")
 //      public static let back = ImageAsset(name: "back")
 //      public static let bell = ImageAsset(name: "bell")
 //      public static let coffee = ImageAsset(name: "coffee")

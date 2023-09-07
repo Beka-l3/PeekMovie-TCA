@@ -20,16 +20,18 @@ struct UsernameView: View {
         NavigationStackStore(
             self.store.scope(state: \.path, action: Username.Action.path)
         ) {
+            
             WithViewStore(store, observe: { $0 }) { viewStore in
                 ZStack {
                     Color(.orange)
                         .ignoresSafeArea()
                     
                     VStack(spacing: 24) {
-                        Image("App Icon")
-                            .resizable()
-                            .frame(width: 120, height: 120)
-                            .cornerRadius(24)
+//                        Image("App Icon")
+//                            .resizable()
+//                            .frame(width: 120, height: 120)
+//                            .cornerRadius(24)
+                        Assets.Icon.app(.x128)
                             .padding(24)
                             .padding(.top, 120)
                         
@@ -85,9 +87,8 @@ struct UsernameView: View {
                         .padding(.bottom, 40)
                     }
                 }
-                
-                
             }
+            
         } destination: {
             switch $0 {
             case .password:
