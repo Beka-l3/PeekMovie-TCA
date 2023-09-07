@@ -16,8 +16,26 @@ struct Password: Reducer {
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
+            
             case let .view(.didChangePassword(newValue)):
                 state.password = newValue
+                return .none
+                
+            case .view(.didTapOnContinue):
+                state.isFetching = true
+                print("\n\nStart Fetching password\n\n")
+                return .run { send in
+                    do {
+                        try await Task.sleep(nanoseconds: 3 * UInt64(1e9))
+                    } catch {
+                        print(error)
+                    }
+                    await send(._private(.passwordIsValid))
+                }
+                
+            case ._private(.passwordIsValid):
+                state.isFetching = false
+                print("\n\nFinish Fetching\n\n")
                 return .none
                 
             default:

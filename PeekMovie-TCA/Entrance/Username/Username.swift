@@ -25,7 +25,7 @@ struct Username: Reducer {
             
             case .view(.didTapOnContinue):
                 state.isFetching = true
-                print("\n\nStart Fetching\n\n")
+                print("\n\nStart Fetching username\n\n")
                 return .run { send in
                     do {
                         try await Task.sleep(nanoseconds: 3 * UInt64(1e9))
