@@ -27,10 +27,6 @@ struct UsernameView: View {
                         .ignoresSafeArea()
                     
                     VStack(spacing: 24) {
-//                        Image("App Icon")
-//                            .resizable()
-//                            .frame(width: 120, height: 120)
-//                            .cornerRadius(24)
                         Assets.Icon.app(.x128)
                             .padding(24)
                             .padding(.top, 120)
