@@ -84,6 +84,7 @@ extension Username.Action {
         case didChangeUsername(String)
         case didTapOnContinue
         case didTapOnRegister
+        case getValue
     }
 }
 
