@@ -23,7 +23,7 @@ struct UsernameView: View {
             
             WithViewStore(store, observe: { $0 }) { viewStore in
                 ZStack {
-                    Color(.orange)
+                    Color(.black)
                         .ignoresSafeArea()
                     
                     VStack(spacing: 24) {
@@ -31,21 +31,29 @@ struct UsernameView: View {
                             .padding(24)
                             .padding(.top, 120)
                         
-                        TextField("Username", text: viewStore.binding(get: \.username, send: { .view(.didChangeUsername($0)) } ))
+                        TextField(String.empty, text: viewStore.binding(get: \.username, send: { .view(.didChangeUsername($0)) } ))
                             .autocorrectionDisabled()
-                            .frame(maxWidth: 240)
+                            .foregroundColor(.white)
+                            .placeholder(when: viewStore.username.isEmpty) {
+                                Text("Username")
+                                    .foregroundColor(.gray)
+                            }
+                            .frame(maxWidth: .infinity)
                             .padding()
                             .background {
-                                Color(.black)
+                                Color(.yellow)
                                     .opacity(0.1)
                             }
                             .mask {
-                                RoundedRectangle(cornerRadius: 16)
+                                RoundedRectangle(cornerRadius: 12)
                             }
                             .overlay {
-                                RoundedRectangle(cornerRadius: 16)
-                                    .stroke(lineWidth: 2)
+                                RoundedRectangle(cornerRadius: 12)
+                                    .stroke(lineWidth: 1)
+                                    .foregroundColor(.yellow)
+                                    
                             }
+                            .padding(.horizontal, 48)
                         
                         
                         Button {
@@ -53,11 +61,13 @@ struct UsernameView: View {
                         } label: {
                             ZStack {
                                 Text("Continue")
-                                    .foregroundColor(.white.opacity(viewStore.isPerformingUsernameCheck ? 0.3 : 1))
-                                    .frame(width: 280, height: 50)
-                                    .background(.black.opacity(viewStore.isPerformingUsernameCheck ? 0.3 : 1))
+                                    .foregroundColor(.black.opacity(viewStore.isPerformingUsernameCheck ? 0.3 : 1))
+//                                    .frame(width: 280, height: 50)
+                                    .frame(maxWidth: .infinity, maxHeight: 50)
+                                    .background(.yellow.opacity(viewStore.isPerformingUsernameCheck ? 0.3 : 1))
                                     .font(.system(size: 20, weight: .bold))
-                                    .cornerRadius(10)
+                                    .cornerRadius(12)
+                                    .padding(.horizontal, 48)
                                 
                                 if viewStore.isFetching {
                                     ProgressView()
@@ -74,11 +84,13 @@ struct UsernameView: View {
                             print("\nRegister tapped")
                         } label: {
                             Text("Register")
-                                .foregroundColor(.black)
-                                .frame(width: 280, height: 50)
-                                .background(.white)
+                                .foregroundColor(.white)
+//                                .frame(width: 280, height: 50)
+                                .frame(maxWidth: .infinity, maxHeight: 50)
+                                .background(.purple)
                                 .font(.system(size: 20, weight: .bold))
                                 .cornerRadius(10)
+                                .padding(.horizontal, 48)
                         }
                         .padding(.bottom, 40)
                     }
