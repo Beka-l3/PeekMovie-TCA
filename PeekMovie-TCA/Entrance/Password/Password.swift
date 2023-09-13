@@ -66,6 +66,7 @@ extension Password.Action {
     enum View: Equatable, Sendable {
         case didChangePassword(String)
         case didTapOnContinue
+        case getValue
     }
 }
 

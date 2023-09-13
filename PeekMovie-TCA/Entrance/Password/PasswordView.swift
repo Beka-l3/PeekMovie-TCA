@@ -66,18 +66,23 @@ struct PasswordView: View {
                     Button {
                         viewStore.send(.view(.didTapOnContinue))
                     } label: {
-                        ZStack {
-                            Text(Constants.continueText)
-                                .foregroundColor(.black.opacity(viewStore.isPerformingPasswordCheck ? Constants.opacityDisabled : Constants.opacityFull))
-                                .frame(width: Constants.mainBtnSize.width, height: Constants.mainBtnSize.height)
-                                .background(.yellow.opacity(viewStore.isPerformingPasswordCheck ? Constants.opacityDisabled : Constants.opacityFull))
-                                .font(.headline.bold())
-                                .cornerRadius(Constants.cornerRadius)
-
-                            if viewStore.isFetching {
-                                ProgressView()
-                            }
-                        }
+                        ContinueButton(
+                            isPerformingPasswordCheck: viewStore.binding(get: \.isPerformingPasswordCheck, send: .view(.getValue)),
+                            isFetching: viewStore.binding(get: \.isFetching, send: .view(.getValue))
+                        )
+                        
+//                        ZStack {
+//                            Text(Constants.continueText)
+//                                .foregroundColor(.black.opacity(viewStore.isPerformingPasswordCheck ? Constants.opacityDisabled : Constants.opacityFull))
+//                                .frame(width: Constants.mainBtnSize.width, height: Constants.mainBtnSize.height)
+//                                .background(.yellow.opacity(viewStore.isPerformingPasswordCheck ? Constants.opacityDisabled : Constants.opacityFull))
+//                                .font(.headline.bold())
+//                                .cornerRadius(Constants.cornerRadius)
+//
+//                            if viewStore.isFetching {
+//                                ProgressView()
+//                            }
+//                        }
                     }
                     .disabled(viewStore.isPerformingPasswordCheck)
                     .padding(.bottom, Constants.paddingLargeExtra)
@@ -164,5 +169,26 @@ private struct PasswordTextField: View {
                     .foregroundColor(.yellow)
             }
             .padding(.horizontal, Constants.padding)
+    }
+}
+
+private struct ContinueButton: View {
+    @Binding var isPerformingPasswordCheck: Bool
+    @Binding var isFetching: Bool
+    
+    var body: some View {
+        ZStack {
+            Text(Constants.continueText)
+                .foregroundColor(.black.opacity(isPerformingPasswordCheck ? Constants.opacityDisabled : Constants.opacityFull))
+                .frame(width: Constants.mainBtnSize.width, height: Constants.mainBtnSize.height)
+                .background(.yellow.opacity(isPerformingPasswordCheck ? Constants.opacityDisabled : Constants.opacityFull))
+                .font(.headline.bold())
+                .cornerRadius(Constants.cornerRadius)
+
+            if isFetching {
+                ProgressView()
+                    .tint(.white)
+            }
+        }
     }
 }
