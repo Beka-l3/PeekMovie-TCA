@@ -7,10 +7,10 @@
 
 import Foundation
 
-public enum Constants {
-    
-    public enum Splash {
-        public static let splashDurationInSeconds: UInt = 3
-    }
-    
-}
+//public enum Constants {
+//    
+//    public enum Splash {
+//        public static let splashDurationInSeconds: UInt = 3
+//    }
+//
+//}

@@ -142,3 +142,11 @@ extension Application.State {
         case entrance
     }
 }
+
+private enum Constants {
+    
+    public enum Splash {
+        public static let splashDurationInSeconds: UInt = 3
+    }
+    
+}

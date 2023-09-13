@@ -76,18 +76,34 @@ struct PasswordView_Previews: PreviewProvider {
 }
 
 
+private enum Constants {
+    static let paddingSmall: CGFloat = 8
+    static let padding: CGFloat = 16
+    static let paddingMedium: CGFloat = 24
+    static let paddingLarge: CGFloat = 32
+
+    static let cornerRadius: CGFloat = 12
+    static let strokeWidth: CGFloat = 1
+    static let bgOpacity: CGFloat = 0.1
+
+    static let idText: String = "id"
+    static let actionText: String = "Enter your password"
+    static let tipText: String = "Password for peek id with username"
+    static let tfPlaceholder: String = "Password"
+}
+
 private struct PeekIdView: View {
     let username: String
     
-    private enum Constants {
-        static let paddingSmall: CGFloat = 8
-        static let paddingMedium: CGFloat = 24
-        static let paddingLarge: CGFloat = 32
-        
-        static let idText: String = "id"
-        static let actionText: String = "Enter your password"
-        static let tipText: String = "Password for peek id with username"
-    }
+//    private enum Constants {
+//        static let paddingSmall: CGFloat = 8
+//        static let paddingMedium: CGFloat = 24
+//        static let paddingLarge: CGFloat = 32
+//
+//        static let idText: String = "id"
+//        static let actionText: String = "Enter your password"
+//        static let tipText: String = "Password for peek id with username"
+//    }
     
     var body: some View {
         VStack {
@@ -122,21 +138,21 @@ private struct PeekIdView: View {
 private struct PasswordTextField: View {
     @Binding var text: String
     
-    private enum Constants {
-        static let cornerRadius: CGFloat = 12
-        static let lineWidth: CGFloat = 1
-        static let bgOpacity: CGFloat = 0.1
-        static let horPadding: CGFloat = 16
-        
-        static let placeholder: String = "Password"
-    }
+//    private enum Constants {
+//        static let cornerRadius: CGFloat = 12
+//        static let lineWidth: CGFloat = 1
+//        static let bgOpacity: CGFloat = 0.1
+//        static let padding: CGFloat = 16
+//
+//        static let placeholder: String = "Password"
+//    }
     
     var body: some View {
         TextField(String.empty, text: $text)
             .autocorrectionDisabled()
             .foregroundColor(.white)
             .placeholder(when: text.isEmpty) {
-                Text(Constants.placeholder).foregroundColor(.gray)
+                Text(Constants.tfPlaceholder).foregroundColor(.gray)
             }
             .textContentType(.password)
             .frame(maxWidth: .infinity)
@@ -150,9 +166,9 @@ private struct PasswordTextField: View {
             }
             .overlay {
                 RoundedRectangle(cornerRadius: Constants.cornerRadius)
-                    .stroke(lineWidth: Constants.lineWidth)
+                    .stroke(lineWidth: Constants.strokeWidth)
                     .foregroundColor(.yellow)
             }
-            .padding(.horizontal, Constants.horPadding)
+            .padding(.horizontal, Constants.padding)
     }
 }
