@@ -8,6 +8,31 @@
 import SwiftUI
 import ComposableArchitecture
 
+private enum Constants {
+    static let paddingSmall: CGFloat = 8
+    static let padding: CGFloat = 16
+    static let paddingMedium: CGFloat = 24
+    static let paddingLarge: CGFloat = 32
+    static let paddingLargeExtra: CGFloat = 64
+    
+    static let cornerRadius: CGFloat = 12
+    static let strokeWidth: CGFloat = 1
+    
+    static let opacityBG: CGFloat = 0.1
+    static let opacityDisabled: CGFloat = 0.3
+    static let opacityFull: CGFloat = 1
+    
+    static let mainBtnSize: CGSize = .init(width: 280, height: 50)
+
+    static let idText: String = "id"
+    static let actionText: String = "Enter your password"
+    static let tipText: String = "Password for peek id with username"
+    static let tfPlaceholder: String = "Password"
+    
+    static let forgotText: String = "I forgot my peek id password"
+    static let continueText: String = "Continue"
+}
+
 struct PasswordView: View {
     
     private let store: StoreOf<Password>
@@ -22,7 +47,7 @@ struct PasswordView: View {
                 Color(.black)
                     .ignoresSafeArea()
                 
-                VStack(spacing: 24) {
+                VStack(spacing: Constants.paddingMedium) {
                     PeekIdView(username: viewStore.username)
                     
                     PasswordTextField(text: viewStore.binding(get: \.password, send: { .view(.didChangePassword($0)) } ) )
@@ -30,10 +55,10 @@ struct PasswordView: View {
                     Button {
                         
                     } label: {
-                        Text("I forgot peek id password")
+                        Text(Constants.forgotText)
                             .foregroundColor(.yellow)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.horizontal, 16)
+                            .padding(.horizontal, Constants.padding)
                     }
                     
                     Spacer()
@@ -42,24 +67,20 @@ struct PasswordView: View {
                         viewStore.send(.view(.didTapOnContinue))
                     } label: {
                         ZStack {
-                            Text("Continue")
-                                .foregroundColor(.black.opacity(viewStore.isPerformingPasswordCheck ? 0.3 : 1))
-                                .frame(width: 280, height: 50)
-                                .background(.yellow.opacity(viewStore.isPerformingPasswordCheck ? 0.3 : 1))
-                                .font(.system(size: 20, weight: .bold))
-                                .cornerRadius(10)
+                            Text(Constants.continueText)
+                                .foregroundColor(.black.opacity(viewStore.isPerformingPasswordCheck ? Constants.opacityDisabled : Constants.opacityFull))
+                                .frame(width: Constants.mainBtnSize.width, height: Constants.mainBtnSize.height)
+                                .background(.yellow.opacity(viewStore.isPerformingPasswordCheck ? Constants.opacityDisabled : Constants.opacityFull))
+                                .font(.headline.bold())
+                                .cornerRadius(Constants.cornerRadius)
 
                             if viewStore.isFetching {
                                 ProgressView()
                             }
                         }
-
                     }
                     .disabled(viewStore.isPerformingPasswordCheck)
-                    .padding(.bottom, 64)
-                    
-                    
-//                    Spacer()
+                    .padding(.bottom, Constants.paddingLargeExtra)
                 }
             }
         }
@@ -75,35 +96,8 @@ struct PasswordView_Previews: PreviewProvider {
     }
 }
 
-
-private enum Constants {
-    static let paddingSmall: CGFloat = 8
-    static let padding: CGFloat = 16
-    static let paddingMedium: CGFloat = 24
-    static let paddingLarge: CGFloat = 32
-
-    static let cornerRadius: CGFloat = 12
-    static let strokeWidth: CGFloat = 1
-    static let bgOpacity: CGFloat = 0.1
-
-    static let idText: String = "id"
-    static let actionText: String = "Enter your password"
-    static let tipText: String = "Password for peek id with username"
-    static let tfPlaceholder: String = "Password"
-}
-
 private struct PeekIdView: View {
     let username: String
-    
-//    private enum Constants {
-//        static let paddingSmall: CGFloat = 8
-//        static let paddingMedium: CGFloat = 24
-//        static let paddingLarge: CGFloat = 32
-//
-//        static let idText: String = "id"
-//        static let actionText: String = "Enter your password"
-//        static let tipText: String = "Password for peek id with username"
-//    }
     
     var body: some View {
         VStack {
@@ -159,7 +153,7 @@ private struct PasswordTextField: View {
             .padding()
             .background {
                 Color(.yellow)
-                    .opacity(Constants.bgOpacity)
+                    .opacity(Constants.opacityBG)
             }
             .mask {
                 RoundedRectangle(cornerRadius: Constants.cornerRadius)
