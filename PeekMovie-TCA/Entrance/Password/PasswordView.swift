@@ -23,15 +23,16 @@ struct PasswordView: View {
                     .ignoresSafeArea()
                 
                 VStack(spacing: 24) {
-                    HStack(spacing: 8) {
-                        Text("id")
-                            .foregroundColor(.white)
-                            .font(.title.bold())
-                        
-                        Assets.Icon.app(.x48)
-                            
-                    }
-                    .padding(.vertical, 120)
+//                    PeekIdView(username: viewStore.)
+//                    HStack(spacing: 8) {
+//                        Text("id")
+//                            .foregroundColor(.white)
+//                            .font(.title.bold())
+//
+//                        Assets.Icon.app(.x48)
+//
+//                    }
+//                    .padding(.vertical, 120)
                     
                     TextField("", text: viewStore.binding(get: \.password, send: { .view(.didChangePassword($0)) } ) )
                         .autocorrectionDisabled()
@@ -89,5 +90,38 @@ struct PasswordView_Previews: PreviewProvider {
         PasswordView(store: .init(initialState: Password.State()) {
             Password()
         })
+    }
+}
+
+
+private struct PeekIdView: View {
+    let username: String
+    
+    var body: some View {
+        VStack {
+            HStack(spacing: 8) {
+                Text("id")
+                    .foregroundColor(.white)
+                    .font(.title.bold())
+                
+                Assets.Icon.app(.x48)
+            }
+            .padding(.bottom, 16)
+            
+            Text("Enter your password")
+                .font(.body)
+                .foregroundColor(.white)
+                .padding(.bottom, 8)
+                
+            
+            Text("Password for peek id with username")
+                .font(.caption)
+                .foregroundColor(.gray)
+                
+            Text(username)
+                .font(.caption)
+                .foregroundColor(.yellow)
+        }
+        .padding(.top, 16)
     }
 }

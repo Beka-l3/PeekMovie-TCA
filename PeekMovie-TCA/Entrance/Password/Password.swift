@@ -83,6 +83,7 @@ extension Password.Action {
 
 extension Password {
     struct State: Equatable, Sendable {
+        var username: String
         var password: String
         
         var isFetching: Bool
@@ -92,9 +93,11 @@ extension Password {
         }
         
         init(
+            username: String = .empty,
             password: String = .empty,
             isFetching: Bool = false
         ) {
+            self.username = username
             self.password = password
             self.isFetching = isFetching
         }

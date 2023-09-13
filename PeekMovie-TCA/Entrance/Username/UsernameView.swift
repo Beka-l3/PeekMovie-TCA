@@ -89,19 +89,18 @@ struct UsernameView: View {
             switch $0 {
             case .password:
                 CaseLet(
-                    /Username.Path.State.password,
-                     action: Username.Path.Action.password,
+                    /Username.State.Path.password,
+                     action: Username.Action.Path.password,
                      then: PasswordView.init
                 )
             case .registration:
                 CaseLet(
-                    /Username.Path.State.registration,
-                     action: Username.Path.Action.registration,
+                    /Username.State.Path.registration,
+                     action: Username.Action.Path.registration,
                      then: RegistrationView.init
                 )
             }
         }
-
         
     }
 }

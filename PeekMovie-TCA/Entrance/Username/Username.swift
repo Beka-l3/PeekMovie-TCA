@@ -52,7 +52,12 @@ struct Username: Reducer {
             }
         }
         .forEach(\.path, action: /Action.path) {
-            Path()
+            Scope(state: /State.Path.password, action: /Action.Path.password) {
+                Password()
+            }
+            Scope(state: /State.Path.registration, action: /Action.Path.registration) {
+                Registration()
+            }
         }
     }
 }
@@ -62,7 +67,7 @@ extension Username {
     enum Action: Equatable, Sendable {
         case delegate(Delegate)
         case view(View)
-        case path(StackAction<Path.State, Path.Action>)
+        case path(StackAction<Username.State.Path, Username.Action.Path>)
         case _private(Private)
     }
 }
@@ -89,14 +94,20 @@ extension Username.Action {
     }
 }
 
-
+extension Username.Action {
+    enum Path: Equatable, Sendable {
+        case password(Password.Action)
+        case registration(Registration.Action)
+    }
+}
 
 // MARK: - State
 extension Username {
     struct State: Equatable, Sendable  {
-        var path = StackState<Path.State>()
+        var path = StackState<Path>()
         
         var username: String
+        
         var isFetching: Bool
         
         var isPerformingUsernameCheck: Bool {
@@ -106,7 +117,7 @@ extension Username {
         var navigationTitle: String
         
         init(
-            path: StackState<Path.State> = .init(),
+            path: StackState<Path> = .init(),
             username: String = "",
             navigationTitle: String = "Username"
         ) {
@@ -119,26 +130,9 @@ extension Username {
     }
 }
 
-extension Username {
-    struct Path: Reducer {
-        public enum State: Equatable, Sendable {
-            case password(Password.State = .init())
-            case registration(Registration.State = .init())
-        }
-        
-        enum Action: Equatable {
-            case password(Password.Action)
-            case registration(Registration.Action)
-        }
-        
-        var body: some Reducer<State, Action> {
-            Scope(state: /State.password, action: /Action.password) {
-                Password()
-            }
-            Scope(state: /State.registration, action: /Action.registration) {
-                Registration()
-            }
-        }
+extension Username.State {
+    enum Path: Equatable, Sendable {
+        case password(Password.State = .init())
+        case registration(Registration.State = .init())
     }
 }
-
