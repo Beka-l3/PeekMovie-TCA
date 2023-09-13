@@ -13,6 +13,10 @@ enum Assets {
     
     enum Icon {
         enum Size: CGFloat {
+            case x16 = 16
+            case x24 = 24
+            case x32 = 32
+            case x44 = 44
             case x48 = 48
             case x64 = 64
             case x128 = 128

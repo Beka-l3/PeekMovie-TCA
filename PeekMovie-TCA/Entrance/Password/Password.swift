@@ -83,7 +83,7 @@ extension Password.Action {
 
 extension Password {
     struct State: Equatable, Sendable {
-        var username: String
+        let username: String
         var password: String
         
         var isFetching: Bool

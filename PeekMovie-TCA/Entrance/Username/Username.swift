@@ -44,7 +44,7 @@ struct Username: Reducer {
             case ._private(.usernameIsValid):
                 state.isFetching = false
                 print("\n\nFinish Fetching\n\n")
-                state.path.append(.password())
+                state.path.append(.password(.init(username: state.username)))
                 return .none
                 
             default:

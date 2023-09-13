@@ -23,38 +23,30 @@ struct PasswordView: View {
                     .ignoresSafeArea()
                 
                 VStack(spacing: 24) {
-//                    PeekIdView(username: viewStore.)
-//                    HStack(spacing: 8) {
-//                        Text("id")
-//                            .foregroundColor(.white)
-//                            .font(.title.bold())
-//
-//                        Assets.Icon.app(.x48)
-//
-//                    }
-//                    .padding(.vertical, 120)
+                    PeekIdView(username: viewStore.username)
                     
-                    TextField("", text: viewStore.binding(get: \.password, send: { .view(.didChangePassword($0)) } ) )
-                        .autocorrectionDisabled()
-                        .foregroundColor(.white)
-                        .placeholder(when: viewStore.password.isEmpty) {
-                            Text("Password").foregroundColor(.gray)
-                        }
-                        .textContentType(.password)
-                        .frame(maxWidth: 240)
-                        .padding()
-                        .background {
-                            Color(.yellow)
-                                .opacity(0.1)
-                        }
-                        .mask {
-                            RoundedRectangle(cornerRadius: 16)
-                        }
-                        .overlay {
-                            RoundedRectangle(cornerRadius: 16)
-                                .stroke(lineWidth: 2)
-                                .foregroundColor(.yellow)
-                        }
+                    PasswordTextField(text: viewStore.binding(get: \.password, send: { .view(.didChangePassword($0)) } ) )
+//                    TextField("", text: viewStore.binding(get: \.password, send: { .view(.didChangePassword($0)) } ) )
+//                        .autocorrectionDisabled()
+//                        .foregroundColor(.white)
+//                        .placeholder(when: viewStore.password.isEmpty) {
+//                            Text("Password").foregroundColor(.gray)
+//                        }
+//                        .textContentType(.password)
+//                        .frame(maxWidth: 240)
+//                        .padding()
+//                        .background {
+//                            Color(.yellow)
+//                                .opacity(0.1)
+//                        }
+//                        .mask {
+//                            RoundedRectangle(cornerRadius: 16)
+//                        }
+//                        .overlay {
+//                            RoundedRectangle(cornerRadius: 16)
+//                                .stroke(lineWidth: 2)
+//                                .foregroundColor(.yellow)
+//                        }
                     
                     
                     Button {
@@ -87,7 +79,7 @@ struct PasswordView: View {
 
 struct PasswordView_Previews: PreviewProvider {
     static var previews: some View {
-        PasswordView(store: .init(initialState: Password.State()) {
+        PasswordView(store: .init(initialState: Password.State(username: "ezpzbaby")) {
             Password()
         })
     }
@@ -104,9 +96,9 @@ private struct PeekIdView: View {
                     .foregroundColor(.white)
                     .font(.title.bold())
                 
-                Assets.Icon.app(.x48)
+                Assets.Icon.app(.x32)
             }
-            .padding(.bottom, 16)
+            .padding(.bottom, 32)
             
             Text("Enter your password")
                 .font(.body)
@@ -122,6 +114,35 @@ private struct PeekIdView: View {
                 .font(.caption)
                 .foregroundColor(.yellow)
         }
-        .padding(.top, 16)
+        .padding(.top, 24)
+        .padding(.bottom, 32)
+    }
+}
+
+private struct PasswordTextField: View {
+    @Binding var text: String
+    
+    var body: some View {
+        TextField("" , text: $text)
+            .autocorrectionDisabled()
+            .foregroundColor(.white)
+            .placeholder(when: text.isEmpty) {
+                Text("Password").foregroundColor(.gray)
+            }
+            .textContentType(.password)
+            .frame(maxWidth: 240)
+            .padding()
+            .background {
+                Color(.yellow)
+                    .opacity(0.1)
+            }
+            .mask {
+                RoundedRectangle(cornerRadius: 16)
+            }
+            .overlay {
+                RoundedRectangle(cornerRadius: 16)
+                    .stroke(lineWidth: 2)
+                    .foregroundColor(.yellow)
+            }
     }
 }
