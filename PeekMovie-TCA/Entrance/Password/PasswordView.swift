@@ -26,28 +26,17 @@ struct PasswordView: View {
                     PeekIdView(username: viewStore.username)
                     
                     PasswordTextField(text: viewStore.binding(get: \.password, send: { .view(.didChangePassword($0)) } ) )
-//                    TextField("", text: viewStore.binding(get: \.password, send: { .view(.didChangePassword($0)) } ) )
-//                        .autocorrectionDisabled()
-//                        .foregroundColor(.white)
-//                        .placeholder(when: viewStore.password.isEmpty) {
-//                            Text("Password").foregroundColor(.gray)
-//                        }
-//                        .textContentType(.password)
-//                        .frame(maxWidth: 240)
-//                        .padding()
-//                        .background {
-//                            Color(.yellow)
-//                                .opacity(0.1)
-//                        }
-//                        .mask {
-//                            RoundedRectangle(cornerRadius: 16)
-//                        }
-//                        .overlay {
-//                            RoundedRectangle(cornerRadius: 16)
-//                                .stroke(lineWidth: 2)
-//                                .foregroundColor(.yellow)
-//                        }
                     
+                    Button {
+                        
+                    } label: {
+                        Text("I forgot peek id password")
+                            .foregroundColor(.yellow)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.horizontal, 16)
+                    }
+                    
+                    Spacer()
                     
                     Button {
                         viewStore.send(.view(.didTapOnContinue))
@@ -67,9 +56,10 @@ struct PasswordView: View {
 
                     }
                     .disabled(viewStore.isPerformingPasswordCheck)
+                    .padding(.bottom, 64)
                     
                     
-                    Spacer()
+//                    Spacer()
                 }
             }
         }
@@ -122,27 +112,36 @@ private struct PeekIdView: View {
 private struct PasswordTextField: View {
     @Binding var text: String
     
+    private enum Constants {
+        static let cornerRadius: CGFloat = 12
+        static let lineWidth: CGFloat = 1
+        static let bgOpacity: CGFloat = 0.1
+        static let horPadding: CGFloat = 16
+        static let placeholder: String = "Password"
+    }
+    
     var body: some View {
-        TextField("" , text: $text)
+        TextField(String.empty, text: $text)
             .autocorrectionDisabled()
             .foregroundColor(.white)
             .placeholder(when: text.isEmpty) {
-                Text("Password").foregroundColor(.gray)
+                Text(Constants.placeholder).foregroundColor(.gray)
             }
             .textContentType(.password)
-            .frame(maxWidth: 240)
+            .frame(maxWidth: .infinity)
             .padding()
             .background {
                 Color(.yellow)
-                    .opacity(0.1)
+                    .opacity(Constants.bgOpacity)
             }
             .mask {
-                RoundedRectangle(cornerRadius: 16)
+                RoundedRectangle(cornerRadius: Constants.cornerRadius)
             }
             .overlay {
-                RoundedRectangle(cornerRadius: 16)
-                    .stroke(lineWidth: 2)
+                RoundedRectangle(cornerRadius: Constants.cornerRadius)
+                    .stroke(lineWidth: Constants.lineWidth)
                     .foregroundColor(.yellow)
             }
+            .padding(.horizontal, Constants.horPadding)
     }
 }
