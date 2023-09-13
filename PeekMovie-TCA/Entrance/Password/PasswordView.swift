@@ -19,7 +19,7 @@ struct PasswordView: View {
     var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
             ZStack {
-                Color(.orange)
+                Color(.black)
                     .ignoresSafeArea()
                 
                 VStack(spacing: 24) {
@@ -33,13 +33,17 @@ struct PasswordView: View {
                     }
                     .padding(.vertical, 120)
                     
-                    TextField("Password", text: viewStore.binding(get: \.password, send: { .view(.didChangePassword($0)) } ) )
+                    TextField("", text: viewStore.binding(get: \.password, send: { .view(.didChangePassword($0)) } ) )
                         .autocorrectionDisabled()
+                        .foregroundColor(.white)
+                        .placeholder(when: viewStore.password.isEmpty) {
+                            Text("Password").foregroundColor(.gray)
+                        }
                         .textContentType(.password)
                         .frame(maxWidth: 240)
                         .padding()
                         .background {
-                            Color(.black)
+                            Color(.yellow)
                                 .opacity(0.1)
                         }
                         .mask {
@@ -48,6 +52,7 @@ struct PasswordView: View {
                         .overlay {
                             RoundedRectangle(cornerRadius: 16)
                                 .stroke(lineWidth: 2)
+                                .foregroundColor(.yellow)
                         }
                     
                     
@@ -56,9 +61,9 @@ struct PasswordView: View {
                     } label: {
                         ZStack {
                             Text("Continue")
-                                .foregroundColor(.white.opacity(viewStore.isPerformingPasswordCheck ? 0.3 : 1))
+                                .foregroundColor(.black.opacity(viewStore.isPerformingPasswordCheck ? 0.3 : 1))
                                 .frame(width: 280, height: 50)
-                                .background(.black.opacity(viewStore.isPerformingPasswordCheck ? 0.3 : 1))
+                                .background(.yellow.opacity(viewStore.isPerformingPasswordCheck ? 0.3 : 1))
                                 .font(.system(size: 20, weight: .bold))
                                 .cornerRadius(10)
 
