@@ -33,6 +33,7 @@ private enum Constants {
     static let continueText: String = "Continue"
 }
 
+// MARK: - View
 struct PasswordView: View {
     
     private let store: StoreOf<Password>
@@ -87,6 +88,8 @@ struct PasswordView_Previews: PreviewProvider {
     }
 }
 
+
+// MARK: - Components
 private struct PeekIdView: View {
     let username: String
     
