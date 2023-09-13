@@ -79,24 +79,34 @@ struct PasswordView_Previews: PreviewProvider {
 private struct PeekIdView: View {
     let username: String
     
+    private enum Constants {
+        static let paddingSmall: CGFloat = 8
+        static let paddingMedium: CGFloat = 24
+        static let paddingLarge: CGFloat = 32
+        
+        static let idText: String = "id"
+        static let actionText: String = "Enter your password"
+        static let tipText: String = "Password for peek id with username"
+    }
+    
     var body: some View {
         VStack {
-            HStack(spacing: 8) {
-                Text("id")
+            HStack(spacing: Constants.paddingSmall) {
+                Text(Constants.idText)
                     .foregroundColor(.white)
                     .font(.title.bold())
                 
                 Assets.Icon.app(.x32)
             }
-            .padding(.bottom, 32)
+            .padding(.bottom, Constants.paddingLarge)
             
-            Text("Enter your password")
+            Text(Constants.actionText)
                 .font(.body)
                 .foregroundColor(.white)
-                .padding(.bottom, 8)
+                .padding(.bottom, Constants.paddingSmall)
                 
             
-            Text("Password for peek id with username")
+            Text(Constants.tipText)
                 .font(.caption)
                 .foregroundColor(.gray)
                 
@@ -104,8 +114,8 @@ private struct PeekIdView: View {
                 .font(.caption)
                 .foregroundColor(.yellow)
         }
-        .padding(.top, 24)
-        .padding(.bottom, 32)
+        .padding(.top, Constants.paddingMedium)
+        .padding(.bottom, Constants.paddingLarge)
     }
 }
 
@@ -117,6 +127,7 @@ private struct PasswordTextField: View {
         static let lineWidth: CGFloat = 1
         static let bgOpacity: CGFloat = 0.1
         static let horPadding: CGFloat = 16
+        
         static let placeholder: String = "Password"
     }
     
