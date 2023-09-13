@@ -70,26 +70,12 @@ struct PasswordView: View {
                             isPerformingPasswordCheck: viewStore.binding(get: \.isPerformingPasswordCheck, send: .view(.getValue)),
                             isFetching: viewStore.binding(get: \.isFetching, send: .view(.getValue))
                         )
-                        
-//                        ZStack {
-//                            Text(Constants.continueText)
-//                                .foregroundColor(.black.opacity(viewStore.isPerformingPasswordCheck ? Constants.opacityDisabled : Constants.opacityFull))
-//                                .frame(width: Constants.mainBtnSize.width, height: Constants.mainBtnSize.height)
-//                                .background(.yellow.opacity(viewStore.isPerformingPasswordCheck ? Constants.opacityDisabled : Constants.opacityFull))
-//                                .font(.headline.bold())
-//                                .cornerRadius(Constants.cornerRadius)
-//
-//                            if viewStore.isFetching {
-//                                ProgressView()
-//                            }
-//                        }
                     }
                     .disabled(viewStore.isPerformingPasswordCheck)
                     .padding(.bottom, Constants.paddingLargeExtra)
                 }
             }
         }
-        
     }
 }
 
@@ -136,15 +122,6 @@ private struct PeekIdView: View {
 
 private struct PasswordTextField: View {
     @Binding var text: String
-    
-//    private enum Constants {
-//        static let cornerRadius: CGFloat = 12
-//        static let lineWidth: CGFloat = 1
-//        static let bgOpacity: CGFloat = 0.1
-//        static let padding: CGFloat = 16
-//
-//        static let placeholder: String = "Password"
-//    }
     
     var body: some View {
         TextField(String.empty, text: $text)
