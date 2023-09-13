@@ -13,6 +13,7 @@ private enum Constants {
     static let padding: CGFloat = 16
     static let paddingMedium: CGFloat = 24
     static let paddingLarge: CGFloat = 32
+    static let paddingLarge2: CGFloat = 48
     static let paddingLargeExtra: CGFloat = 64
     
     static let cornerRadius: CGFloat = 12
@@ -22,7 +23,7 @@ private enum Constants {
     static let opacityDisabled: CGFloat = 0.3
     static let opacityFull: CGFloat = 1
     
-    static let mainBtnSize: CGSize = .init(width: 280, height: 50)
+    static let shapedButtonHeight: CGFloat = 50
 
     static let idText: String = "id"
     static let actionText: String = "Enter your password"
@@ -59,7 +60,7 @@ struct PasswordView: View {
                         Text(Constants.forgotText)
                             .foregroundColor(.yellow)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.horizontal, Constants.padding)
+                            .padding(.horizontal, Constants.paddingLarge2)
                     }
                     
                     Spacer()
@@ -149,7 +150,7 @@ private struct PasswordTextField: View {
                     .stroke(lineWidth: Constants.strokeWidth)
                     .foregroundColor(.yellow)
             }
-            .padding(.horizontal, Constants.padding)
+            .padding(.horizontal, Constants.paddingLarge2)
     }
 }
 
@@ -161,10 +162,11 @@ private struct ContinueButton: View {
         ZStack {
             Text(Constants.continueText)
                 .foregroundColor(.black.opacity(isPerformingPasswordCheck ? Constants.opacityDisabled : Constants.opacityFull))
-                .frame(width: Constants.mainBtnSize.width, height: Constants.mainBtnSize.height)
+                .frame(maxWidth: .infinity, maxHeight: Constants.shapedButtonHeight)
                 .background(.yellow.opacity(isPerformingPasswordCheck ? Constants.opacityDisabled : Constants.opacityFull))
                 .font(.headline.bold())
                 .cornerRadius(Constants.cornerRadius)
+                .padding(.horizontal, Constants.paddingLarge2)
 
             if isFetching {
                 ProgressView()

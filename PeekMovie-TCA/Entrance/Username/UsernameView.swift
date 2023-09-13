@@ -13,6 +13,7 @@ private enum Constants {
     static let padding: CGFloat = 16
     static let paddingMedium: CGFloat = 24
     static let paddingLarge: CGFloat = 32
+    static let paddingLarge2: CGFloat = 48
     static let paddingLargeExtra: CGFloat = 64
     
     static let cornerRadius: CGFloat = 12
@@ -22,7 +23,7 @@ private enum Constants {
     static let opacityDisabled: CGFloat = 0.3
     static let opacityFull: CGFloat = 1
     
-    static let mainBtnSize: CGSize = .init(width: 280, height: 50)
+    static let shapedButtonHeight: CGFloat = 50
     
     static let actionText: String = "Enter your username"
     static let tipText: String = "Or you can use your email"
@@ -50,7 +51,7 @@ struct UsernameView: View {
                     Color(.black)
                         .ignoresSafeArea()
                     
-                    VStack(spacing: 24) {
+                    VStack(spacing: Constants.paddingMedium) {
                         PeekLogo()
                         
                         UsernameTextField(text: viewStore.binding(get: \.username, send: {.view(.didChangeUsername($0))}  ))
@@ -72,7 +73,7 @@ struct UsernameView: View {
                         } label: {
                             RegisterButton(isFetching: viewStore.binding(get: \.isFetching, send: .view(.getValue)))
                         }
-                        .padding(.bottom, 40)
+                        .padding(.bottom, Constants.paddingLargeExtra)
                     }
                 }
             }
@@ -115,7 +116,7 @@ private struct PeekLogo: View {
     var body: some View {
         VStack {
             Assets.Icon.app(.x128)
-                .padding(24)
+                .padding(Constants.paddingMedium)
             
             Text(Constants.actionText)
                 .font(.body)
@@ -157,7 +158,7 @@ private struct UsernameTextField: View {
                     .stroke(lineWidth: Constants.strokeWidth)
                     .foregroundColor(.yellow)
             }
-            .padding(.horizontal, 48)
+            .padding(.horizontal, Constants.paddingLarge2)
     }
 }
 
@@ -169,11 +170,11 @@ private struct ContinueButton: View {
         ZStack {
             Text(Constants.continueText)
                 .foregroundColor(.black.opacity(isPerformingPasswordCheck ? Constants.opacityDisabled : Constants.opacityFull))
-                .frame(maxWidth: .infinity, maxHeight: 50)
+                .frame(maxWidth: .infinity, maxHeight: Constants.shapedButtonHeight)
                 .background(.yellow.opacity(isPerformingPasswordCheck ? Constants.opacityDisabled : Constants.opacityFull))
                 .font(.headline.bold())
                 .cornerRadius(Constants.cornerRadius)
-                .padding(.horizontal, 48)
+                .padding(.horizontal, Constants.paddingLarge2)
 
             if isFetching {
                 ProgressView()
@@ -190,11 +191,11 @@ private struct RegisterButton: View {
         ZStack {
             Text(Constants.registerText)
                 .foregroundColor(.white.opacity(isFetching ? Constants.opacityDisabled : Constants.opacityFull))
-                .frame(maxWidth: .infinity, maxHeight: 50)
+                .frame(maxWidth: .infinity, maxHeight: Constants.shapedButtonHeight)
                 .background(.purple.opacity(isFetching ? Constants.opacityDisabled : Constants.opacityFull))
                 .font(.headline.bold())
                 .cornerRadius(Constants.cornerRadius)
-                .padding(.horizontal, 48)
+                .padding(.horizontal, Constants.paddingLarge2)
 
             if isFetching {
                 ProgressView()
