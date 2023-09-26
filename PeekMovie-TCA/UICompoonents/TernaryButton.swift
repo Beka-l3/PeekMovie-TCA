@@ -14,6 +14,6 @@ struct TernaryButton: View {
         Text(labelText)
             .foregroundColor(.yellow)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.horizontal, UICConstants.paddingLarge2)
+            .padding(.horizontal, UICConstants.HIG.paddingLarge2)
     }
 }
