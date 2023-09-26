@@ -42,6 +42,8 @@
 		079205302AC2DEC100F8216A /* MainTextFieldButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0792052F2AC2DEC100F8216A /* MainTextFieldButton.swift */; };
 		079205322AC2DF6C00F8216A /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079205312AC2DF6C00F8216A /* SecondaryButton.swift */; };
 		079205342AC2E07B00F8216A /* TernaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079205332AC2E07B00F8216A /* TernaryButton.swift */; };
+		079205372AC2E2D800F8216A /* UICConstants+HIG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079205362AC2E2D800F8216A /* UICConstants+HIG.swift */; };
+		079205392AC2E2F200F8216A /* UICConstants+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079205382AC2E2F200F8216A /* UICConstants+Text.swift */; };
 		07F3143B2AA87CBB00B434ED /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F3143A2AA87CBB00B434ED /* PasswordView.swift */; };
 		07F3143D2AA87CFF00B434ED /* Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F3143C2AA87CFF00B434ED /* Password.swift */; };
 		07F314432AA8954200B434ED /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F314422AA8954200B434ED /* Registration.swift */; };
@@ -96,6 +98,8 @@
 		0792052F2AC2DEC100F8216A /* MainTextFieldButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextFieldButton.swift; sourceTree = "<group>"; };
 		079205312AC2DF6C00F8216A /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
 		079205332AC2E07B00F8216A /* TernaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TernaryButton.swift; sourceTree = "<group>"; };
+		079205362AC2E2D800F8216A /* UICConstants+HIG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICConstants+HIG.swift"; sourceTree = "<group>"; };
+		079205382AC2E2F200F8216A /* UICConstants+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICConstants+Text.swift"; sourceTree = "<group>"; };
 		07F3143A2AA87CBB00B434ED /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
 		07F3143C2AA87CFF00B434ED /* Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password.swift; sourceTree = "<group>"; };
 		07F314422AA8954200B434ED /* Registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
@@ -279,7 +283,7 @@
 		079205282AC2D2F000F8216A /* UICompoonents */ = {
 			isa = PBXGroup;
 			children = (
-				0792052B2AC2D3AC00F8216A /* UICConstants.swift */,
+				079205352AC2E2BB00F8216A /* Constants */,
 				0792052D2AC2D52400F8216A /* Icons.swift */,
 				079205292AC2D34700F8216A /* MainTextField.swift */,
 				0792052F2AC2DEC100F8216A /* MainTextFieldButton.swift */,
@@ -287,6 +291,16 @@
 				079205332AC2E07B00F8216A /* TernaryButton.swift */,
 			);
 			path = UICompoonents;
+			sourceTree = "<group>";
+		};
+		079205352AC2E2BB00F8216A /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				0792052B2AC2D3AC00F8216A /* UICConstants.swift */,
+				079205362AC2E2D800F8216A /* UICConstants+HIG.swift */,
+				079205382AC2E2F200F8216A /* UICConstants+Text.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		07F314392AA87CA900B434ED /* Password */ = {
@@ -383,6 +397,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				079205392AC2E2F200F8216A /* UICConstants+Text.swift in Sources */,
 				07F3143D2AA87CFF00B434ED /* Password.swift in Sources */,
 				075155C42AA333FF00598BE8 /* String+EmptyString.swift in Sources */,
 				073FDDCA2AA4A6FA00A263DF /* Username.swift in Sources */,
@@ -418,6 +433,7 @@
 				0792052A2AC2D34700F8216A /* MainTextField.swift in Sources */,
 				076760032AA0CA420024E714 /* ApplicationView.swift in Sources */,
 				0767600D2AA0D06B0024E714 /* SplashView.swift in Sources */,
+				079205372AC2E2D800F8216A /* UICConstants+HIG.swift in Sources */,
 				0767602F2AA0D6B80024E714 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

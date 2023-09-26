@@ -35,7 +35,7 @@ struct UsernameView: View {
                     Color(.black)
                         .ignoresSafeArea()
                     
-                    VStack(spacing: UICConstants.paddingMedium) {
+                    VStack(spacing: UICConstants.HIG.paddingMedium) {
                         PeekLogo()
                         
                         MainTextField(
@@ -64,7 +64,7 @@ struct UsernameView: View {
                                 labelText: Constants.registerButtonText
                             )
                         }
-                        .padding(.bottom, UICConstants.paddingLargeExtra)
+                        .padding(.bottom, UICConstants.HIG.paddingLargeExtra)
                     }
                 }
             }
@@ -106,20 +106,20 @@ private struct PeekLogo: View {
     var body: some View {
         VStack {
             Icon.app(.x128)
-                .padding(UICConstants.paddingMedium)
+                .padding(UICConstants.HIG.paddingMedium)
             
             Text(Constants.actionText)
                 .font(.body)
                 .foregroundColor(.white)
-                .padding(.bottom, UICConstants.paddingSmall)
+                .padding(.bottom, UICConstants.HIG.paddingSmall)
                 
             
             Text(Constants.tipText)
                 .font(.caption)
                 .foregroundColor(.gray)
         }
-        .padding(.top, UICConstants.paddingMedium)
-        .padding(.bottom, UICConstants.paddingLarge)
+        .padding(.top, UICConstants.HIG.paddingMedium)
+        .padding(.bottom, UICConstants.HIG.paddingLarge)
     }
 }
 

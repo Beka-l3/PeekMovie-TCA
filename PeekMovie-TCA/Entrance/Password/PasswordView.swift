@@ -14,8 +14,8 @@ private enum Constants {
     static let tipText: String = "Password for peek id with username"
     static let passwordTFPlaceholder: String = "Password"
     
-    static let forgotText: String = "I forgot my peek id password"
-    static let continueText: String = "Continue"
+    static let forgotButtonText: String = "I forgot my peek id password"
+    static let continueButtonText: String = "Continue"
 }
 
 // MARK: - View
@@ -44,7 +44,7 @@ struct PasswordView: View {
                     Button {
                         
                     } label: {
-                        TernaryButton(labelText: Constants.forgotText)
+                        TernaryButton(labelText: Constants.forgotButtonText)
                     }
                     
                     Spacer()
@@ -55,7 +55,7 @@ struct PasswordView: View {
                         MainTextFieldButton(
                             isPerformingPasswordCheck: viewStore.binding(get: \.isPerformingPasswordCheck, send: .view(.getValue)),
                             isFetching: viewStore.binding(get: \.isFetching, send: .view(.getValue)),
-                            labelText: Constants.continueText
+                            labelText: Constants.continueButtonText
                         )
                     }
                     .disabled(viewStore.isPerformingPasswordCheck)
