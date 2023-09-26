@@ -14,12 +14,12 @@ struct SecondaryFetchingButton: View {
     var body: some View {
         ZStack {
             Text(labelText)
-                .foregroundColor(.white.opacity(isFetching ? UICConstants.opacityDisabled : UICConstants.opacityFull))
-                .frame(maxWidth: .infinity, maxHeight: UICConstants.shapedButtonHeight)
-                .background(.purple.opacity(isFetching ? UICConstants.opacityDisabled : UICConstants.opacityFull))
+                .foregroundColor(.white.opacity(isFetching ? UICConstants.HIG.opacityDisabled : UICConstants.HIG.opacityFull))
+                .frame(maxWidth: .infinity, maxHeight: UICConstants.HIG.shapedButtonHeight)
+                .background(.purple.opacity(isFetching ? UICConstants.HIG.opacityDisabled : UICConstants.HIG.opacityFull))
                 .font(.headline.bold())
-                .cornerRadius(UICConstants.cornerRadius)
-                .padding(.horizontal, UICConstants.paddingLarge2)
+                .cornerRadius(UICConstants.HIG.cornerRadius)
+                .padding(.horizontal, UICConstants.HIG.paddingLarge2)
 
             if isFetching {
                 ProgressView()
