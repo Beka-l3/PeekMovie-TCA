@@ -15,12 +15,12 @@ struct MainTextFieldButton: View {
     var body: some View {
         ZStack {
             Text(labelText)
-                .foregroundColor(.black.opacity(isPerformingPasswordCheck ? UICConstants.opacityDisabled : UICConstants.opacityFull))
-                .frame(maxWidth: .infinity, maxHeight: UICConstants.shapedButtonHeight)
-                .background(.yellow.opacity(isPerformingPasswordCheck ? UICConstants.opacityDisabled : UICConstants.opacityFull))
+                .foregroundColor(.black.opacity(isPerformingPasswordCheck ? UICConstants.HIG.opacityDisabled : UICConstants.HIG.opacityFull))
+                .frame(maxWidth: .infinity, maxHeight: UICConstants.HIG.shapedButtonHeight)
+                .background(.yellow.opacity(isPerformingPasswordCheck ? UICConstants.HIG.opacityDisabled : UICConstants.HIG.opacityFull))
                 .font(.headline.bold())
-                .cornerRadius(UICConstants.cornerRadius)
-                .padding(.horizontal, UICConstants.paddingLarge2)
+                .cornerRadius(UICConstants.HIG.cornerRadius)
+                .padding(.horizontal, UICConstants.HIG.paddingLarge2)
 
             if isFetching {
                 ProgressView()
