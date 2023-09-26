@@ -27,7 +27,7 @@ private enum Constants {
     
     static let actionText: String = "Enter your username"
     static let tipText: String = "Or you can use your email"
-    static let tfPlaceholder: String = "Username or email"
+    static let usernameTFPlaceholder: String = "Username or email"
     
     static let continueText: String = "Continue"
     static let registerText: String = "Register"
@@ -54,7 +54,10 @@ struct UsernameView: View {
                     VStack(spacing: Constants.paddingMedium) {
                         PeekLogo()
                         
-                        UsernameTextField(text: viewStore.binding(get: \.username, send: {.view(.didChangeUsername($0))}  ))
+                        MainTextField(
+                            text: viewStore.binding(get: \.username, send: {.view(.didChangeUsername($0))}  ),
+                            placeholder: Constants.usernameTFPlaceholder
+                        )
                         
                         Button {
                             viewStore.send(.view(.didTapOnContinue))
@@ -112,10 +115,9 @@ struct SignInView_Previews: PreviewProvider {
 // MARK: - Components
 
 private struct PeekLogo: View {
-    
     var body: some View {
         VStack {
-            Assets.Icon.app(.x128)
+            Icon.app(.x128)
                 .padding(Constants.paddingMedium)
             
             Text(Constants.actionText)
@@ -130,35 +132,6 @@ private struct PeekLogo: View {
         }
         .padding(.top, Constants.paddingMedium)
         .padding(.bottom, Constants.paddingLarge)
-    }
-}
-
-private struct UsernameTextField: View {
-    @Binding var text: String
-    
-    var body: some View {
-        TextField(String.empty, text: $text)
-            .autocorrectionDisabled()
-            .foregroundColor(.white)
-            .placeholder(when: text.isEmpty) {
-                Text(Constants.tfPlaceholder).foregroundColor(.gray)
-            }
-            .textContentType(.password)
-            .frame(maxWidth: .infinity)
-            .padding()
-            .background {
-                Color(.yellow)
-                    .opacity(Constants.opacityBG)
-            }
-            .mask {
-                RoundedRectangle(cornerRadius: Constants.cornerRadius)
-            }
-            .overlay {
-                RoundedRectangle(cornerRadius: Constants.cornerRadius)
-                    .stroke(lineWidth: Constants.strokeWidth)
-                    .foregroundColor(.yellow)
-            }
-            .padding(.horizontal, Constants.paddingLarge2)
     }
 }
 

@@ -102,7 +102,7 @@ private struct PeekIdView: View {
                     .foregroundColor(.white)
                     .font(.title.bold())
                 
-                Assets.Icon.app(.x32)
+                Icon.app(.x32)
             }
             .padding(.bottom, Constants.paddingLarge)
             

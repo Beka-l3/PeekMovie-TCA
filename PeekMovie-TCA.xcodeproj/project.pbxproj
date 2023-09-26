@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		072993992AA9C7DA00ECB246 /* Assetss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072993982AA9C7DA00ECB246 /* Assetss.swift */; };
 		073FDDCA2AA4A6FA00A263DF /* Username.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073FDDC92AA4A6FA00A263DF /* Username.swift */; };
 		073FDDCC2AA4AEBD00A263DF /* EntranceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073FDDCB2AA4AEBD00A263DF /* EntranceView.swift */; };
 		075155C02AA32CA000598BE8 /* Entrance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075155BF2AA32CA000598BE8 /* Entrance.swift */; };
@@ -37,6 +36,9 @@
 		0767602B2AA0D5040024E714 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0767602A2AA0D5040024E714 /* Assets.swift */; };
 		0767602D2AA0D5BA0024E714 /* View+OnFirstAppear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0767602C2AA0D5BA0024E714 /* View+OnFirstAppear.swift */; };
 		0767602F2AA0D6B80024E714 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0767602E2AA0D6B80024E714 /* Constants.swift */; };
+		0792052A2AC2D34700F8216A /* MainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079205292AC2D34700F8216A /* MainTextField.swift */; };
+		0792052C2AC2D3AC00F8216A /* UICConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0792052B2AC2D3AC00F8216A /* UICConstants.swift */; };
+		0792052E2AC2D52400F8216A /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0792052D2AC2D52400F8216A /* Icons.swift */; };
 		07F3143B2AA87CBB00B434ED /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F3143A2AA87CBB00B434ED /* PasswordView.swift */; };
 		07F3143D2AA87CFF00B434ED /* Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F3143C2AA87CFF00B434ED /* Password.swift */; };
 		07F314432AA8954200B434ED /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F314422AA8954200B434ED /* Registration.swift */; };
@@ -44,7 +46,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		072993982AA9C7DA00ECB246 /* Assetss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assetss.swift; sourceTree = "<group>"; };
 		073FDDC92AA4A6FA00A263DF /* Username.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Username.swift; sourceTree = "<group>"; };
 		073FDDCB2AA4AEBD00A263DF /* EntranceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntranceView.swift; sourceTree = "<group>"; };
 		075155BF2AA32CA000598BE8 /* Entrance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entrance.swift; sourceTree = "<group>"; };
@@ -86,6 +87,9 @@
 		0767602A2AA0D5040024E714 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		0767602C2AA0D5BA0024E714 /* View+OnFirstAppear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+OnFirstAppear.swift"; sourceTree = "<group>"; };
 		0767602E2AA0D6B80024E714 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		079205292AC2D34700F8216A /* MainTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextField.swift; sourceTree = "<group>"; };
+		0792052B2AC2D3AC00F8216A /* UICConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICConstants.swift; sourceTree = "<group>"; };
+		0792052D2AC2D52400F8216A /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		07F3143A2AA87CBB00B434ED /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
 		07F3143C2AA87CFF00B434ED /* Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password.swift; sourceTree = "<group>"; };
 		07F314422AA8954200B434ED /* Registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
@@ -145,6 +149,7 @@
 				07675FFB2AA0C67D0024E714 /* Application */,
 				076760092AA0CDAB0024E714 /* Service */,
 				0767600E2AA0D20B0024E714 /* Utils */,
+				079205282AC2D2F000F8216A /* UICompoonents */,
 				076760062AA0CC310024E714 /* Splash */,
 				076760042AA0CC200024E714 /* Entrance */,
 				076760052AA0CC2B0024E714 /* Lobby */,
@@ -220,7 +225,6 @@
 				0767602A2AA0D5040024E714 /* Assets.swift */,
 				0767602E2AA0D6B80024E714 /* Constants.swift */,
 				075155C12AA32E0300598BE8 /* L10n.swift */,
-				072993982AA9C7DA00ECB246 /* Assetss.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -264,6 +268,16 @@
 				076760192AA0D3640024E714 /* Roboto-ThinItalic.ttf */,
 			);
 			path = ttf;
+			sourceTree = "<group>";
+		};
+		079205282AC2D2F000F8216A /* UICompoonents */ = {
+			isa = PBXGroup;
+			children = (
+				0792052B2AC2D3AC00F8216A /* UICConstants.swift */,
+				079205292AC2D34700F8216A /* MainTextField.swift */,
+				0792052D2AC2D52400F8216A /* Icons.swift */,
+			);
+			path = UICompoonents;
 			sourceTree = "<group>";
 		};
 		07F314392AA87CA900B434ED /* Password */ = {
@@ -374,13 +388,14 @@
 				076760252AA0D3BB0024E714 /* AdaptiveSize.swift in Sources */,
 				075155C72AA33CB300598BE8 /* UserClient.swift in Sources */,
 				076760292AA0D4B10024E714 /* CGSize+square.swift in Sources */,
-				072993992AA9C7DA00ECB246 /* Assetss.swift in Sources */,
 				07675FFF2AA0C7790024E714 /* Application.swift in Sources */,
+				0792052C2AC2D3AC00F8216A /* UICConstants.swift in Sources */,
 				076760272AA0D4360024E714 /* AdaptiveFrame.swift in Sources */,
 				07F314452AA8955800B434ED /* RegistrationView.swift in Sources */,
 				07F314432AA8954200B434ED /* Registration.swift in Sources */,
 				075155C02AA32CA000598BE8 /* Entrance.swift in Sources */,
 				07675FFD2AA0C6CA0024E714 /* ApplicationDelegate.swift in Sources */,
+				0792052E2AC2D52400F8216A /* Icons.swift in Sources */,
 				076330A62AB1AD6A00471FB8 /* View+placeholder.swift in Sources */,
 				07F3143B2AA87CBB00B434ED /* PasswordView.swift in Sources */,
 				075155C92AA35A7000598BE8 /* UsernameView.swift in Sources */,
@@ -388,6 +403,7 @@
 				07675FEC2AA0C0C20024E714 /* ContentView.swift in Sources */,
 				076760012AA0C93D0024E714 /* ApplicationScreen.swift in Sources */,
 				07675FEA2AA0C0C20024E714 /* PeekMovieApplication.swift in Sources */,
+				0792052A2AC2D34700F8216A /* MainTextField.swift in Sources */,
 				076760032AA0CA420024E714 /* ApplicationView.swift in Sources */,
 				0767600D2AA0D06B0024E714 /* SplashView.swift in Sources */,
 				0767602F2AA0D6B80024E714 /* Constants.swift in Sources */,
