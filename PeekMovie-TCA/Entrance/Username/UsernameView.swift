@@ -30,7 +30,7 @@ private enum Constants {
     static let usernameTFPlaceholder: String = "Username or email"
     
     static let continueButtonText: String = "Continue"
-    static let registerText: String = "Register"
+    static let registerButtonText: String = "Register"
 }
 
 // MARK: - View
@@ -62,7 +62,7 @@ struct UsernameView: View {
                         Button {
                             viewStore.send(.view(.didTapOnContinue))
                         } label: {
-                            MainButton(
+                            MainTextFieldButton(
                                 isPerformingPasswordCheck: viewStore.binding(get: \.isPerformingUsernameCheck, send: .view(.getValue)),
                                 isFetching: viewStore.binding(get: \.isFetching, send: .view(.getValue)),
                                 labelText: Constants.continueButtonText
@@ -75,7 +75,10 @@ struct UsernameView: View {
                         Button {
                             print("\nRegister tapped")
                         } label: {
-                            RegisterButton(isFetching: viewStore.binding(get: \.isFetching, send: .view(.getValue)))
+                            SecondaryFetchingButton(
+                                isFetching: viewStore.binding(get: \.isFetching, send: .view(.getValue)),
+                                labelText: Constants.registerButtonText
+                            )
                         }
                         .padding(.bottom, Constants.paddingLargeExtra)
                     }
@@ -136,24 +139,4 @@ private struct PeekLogo: View {
     }
 }
 
-private struct RegisterButton: View {
-    @Binding var isFetching: Bool
-    
-    var body: some View {
-        ZStack {
-            Text(Constants.registerText)
-                .foregroundColor(.white.opacity(isFetching ? Constants.opacityDisabled : Constants.opacityFull))
-                .frame(maxWidth: .infinity, maxHeight: Constants.shapedButtonHeight)
-                .background(.purple.opacity(isFetching ? Constants.opacityDisabled : Constants.opacityFull))
-                .font(.headline.bold())
-                .cornerRadius(Constants.cornerRadius)
-                .padding(.horizontal, Constants.paddingLarge2)
-
-            if isFetching {
-                ProgressView()
-                    .tint(.white)
-            }
-        }
-    }
-}
 
