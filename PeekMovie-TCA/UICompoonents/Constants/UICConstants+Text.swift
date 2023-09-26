@@ -22,3 +22,13 @@ extension UICConstants.Text {
     }
 }
 
+extension UICConstants.Text {
+    enum PasswordPage {
+        static let idText: String = "id"
+        static let actionText: String = "Enter your password"
+        static let tipText: String = "Password for peek id with username"
+        static let passwordTFPlaceholder: String = "Password"
+        
+        static let forgotButtonText: String = "I forgot my peek id password"
+    }
+}

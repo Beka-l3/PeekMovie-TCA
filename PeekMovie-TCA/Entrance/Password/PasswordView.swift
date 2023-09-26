@@ -8,15 +8,6 @@
 import SwiftUI
 import ComposableArchitecture
 
-private enum Constants {
-    static let idText: String = "id"
-    static let actionText: String = "Enter your password"
-    static let tipText: String = "Password for peek id with username"
-    static let passwordTFPlaceholder: String = "Password"
-    
-    static let forgotButtonText: String = "I forgot my peek id password"
-    static let continueButtonText: String = "Continue"
-}
 
 // MARK: - View
 struct PasswordView: View {
@@ -33,18 +24,18 @@ struct PasswordView: View {
                 Color(.black)
                     .ignoresSafeArea()
                 
-                VStack(spacing: UICConstants.paddingMedium) {
+                VStack(spacing: UICConstants.HIG.paddingMedium) {
                     PeekIdView(username: viewStore.username)
                     
                     MainTextField(
                         text: viewStore.binding(get: \.password, send: { .view(.didChangePassword($0)) } ),
-                        placeholder: Constants.passwordTFPlaceholder
+                        placeholder: UICConstants.Text.PasswordPage.passwordTFPlaceholder
                     )
                     
                     Button {
                         
                     } label: {
-                        TernaryButton(labelText: Constants.forgotButtonText)
+                        TernaryButton(labelText: UICConstants.Text.PasswordPage.forgotButtonText)
                     }
                     
                     Spacer()
@@ -55,11 +46,11 @@ struct PasswordView: View {
                         MainTextFieldButton(
                             isPerformingPasswordCheck: viewStore.binding(get: \.isPerformingPasswordCheck, send: .view(.getValue)),
                             isFetching: viewStore.binding(get: \.isFetching, send: .view(.getValue)),
-                            labelText: Constants.continueButtonText
+                            labelText: UICConstants.Text.continueButton
                         )
                     }
                     .disabled(viewStore.isPerformingPasswordCheck)
-                    .padding(.bottom, UICConstants.paddingLargeExtra)
+                    .padding(.bottom, UICConstants.HIG.paddingLargeExtra)
                 }
             }
         }
@@ -82,22 +73,21 @@ private struct PeekIdView: View {
     
     var body: some View {
         VStack {
-            HStack(spacing: UICConstants.paddingSmall) {
-                Text(Constants.idText)
+            HStack(spacing: UICConstants.HIG.paddingSmall) {
+                Text(UICConstants.Text.PasswordPage.idText)
                     .foregroundColor(.white)
                     .font(.title.bold())
                 
                 Icon.app(.x32)
             }
-            .padding(.bottom, UICConstants.paddingLarge)
+            .padding(.bottom, UICConstants.HIG.paddingLarge)
             
-            Text(Constants.actionText)
+            Text(UICConstants.Text.PasswordPage.actionText)
                 .font(.body)
                 .foregroundColor(.white)
-                .padding(.bottom, UICConstants.paddingSmall)
+                .padding(.bottom, UICConstants.HIG.paddingSmall)
                 
-            
-            Text(Constants.tipText)
+            Text(UICConstants.Text.PasswordPage.tipText)
                 .font(.caption)
                 .foregroundColor(.gray)
                 
@@ -105,7 +95,7 @@ private struct PeekIdView: View {
                 .font(.caption)
                 .foregroundColor(.yellow)
         }
-        .padding(.top, UICConstants.paddingMedium)
-        .padding(.bottom, UICConstants.paddingLarge)
+        .padding(.top, UICConstants.HIG.paddingMedium)
+        .padding(.bottom, UICConstants.HIG.paddingLarge)
     }
 }
