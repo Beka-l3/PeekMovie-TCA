@@ -23,16 +23,16 @@ struct MainTextField: View {
             .padding()
             .background {
                 Color(.yellow)
-                    .opacity(UICConstants.opacityBG)
+                    .opacity(UICConstants.HIG.opacityBG)
             }
             .mask {
-                RoundedRectangle(cornerRadius: UICConstants.cornerRadius)
+                RoundedRectangle(cornerRadius: UICConstants.HIG.cornerRadius)
             }
             .overlay {
-                RoundedRectangle(cornerRadius: UICConstants.cornerRadius)
-                    .stroke(lineWidth: UICConstants.strokeWidth)
+                RoundedRectangle(cornerRadius: UICConstants.HIG.cornerRadius)
+                    .stroke(lineWidth: UICConstants.HIG.strokeWidth)
                     .foregroundColor(.yellow)
             }
-            .padding(.horizontal, UICConstants.paddingLarge2)
+            .padding(.horizontal, UICConstants.HIG.paddingLarge2)
     }
 }
