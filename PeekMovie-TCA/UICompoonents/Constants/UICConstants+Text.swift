@@ -12,3 +12,13 @@ extension UICConstants {
         static let continueButton: String = "Continue"
     }
 }
+
+extension UICConstants.Text {
+    enum UsernamePage {
+        static let actionText: String = "Enter your username"
+        static let tipText: String = "Or you can use your email"
+        static let usernamePlaceholder: String = "Username or email"
+        static let registerButtonText: String = "Register"
+    }
+}
+

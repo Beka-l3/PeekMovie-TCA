@@ -8,14 +8,6 @@
 import SwiftUI
 import ComposableArchitecture
 
-private enum Constants {
-    static let actionText: String = "Enter your username"
-    static let tipText: String = "Or you can use your email"
-    static let usernameTFPlaceholder: String = "Username or email"
-    
-    static let continueButtonText: String = "Continue"
-    static let registerButtonText: String = "Register"
-}
 
 // MARK: - View
 struct UsernameView: View {
@@ -40,7 +32,7 @@ struct UsernameView: View {
                         
                         MainTextField(
                             text: viewStore.binding(get: \.username, send: {.view(.didChangeUsername($0))}  ),
-                            placeholder: Constants.usernameTFPlaceholder
+                            placeholder: UICConstants.Text.UsernamePage.usernamePlaceholder
                         )
                         
                         Button {
@@ -49,7 +41,7 @@ struct UsernameView: View {
                             MainTextFieldButton(
                                 isPerformingPasswordCheck: viewStore.binding(get: \.isPerformingUsernameCheck, send: .view(.getValue)),
                                 isFetching: viewStore.binding(get: \.isFetching, send: .view(.getValue)),
-                                labelText: Constants.continueButtonText
+                                labelText: UICConstants.Text.continueButton
                             )
                         }
                         .disabled(viewStore.isPerformingUsernameCheck)
@@ -61,7 +53,7 @@ struct UsernameView: View {
                         } label: {
                             SecondaryFetchingButton(
                                 isFetching: viewStore.binding(get: \.isFetching, send: .view(.getValue)),
-                                labelText: Constants.registerButtonText
+                                labelText: UICConstants.Text.UsernamePage.registerButtonText
                             )
                         }
                         .padding(.bottom, UICConstants.HIG.paddingLargeExtra)
@@ -108,13 +100,12 @@ private struct PeekLogo: View {
             Icon.app(.x128)
                 .padding(UICConstants.HIG.paddingMedium)
             
-            Text(Constants.actionText)
+            Text(UICConstants.Text.UsernamePage.actionText)
                 .font(.body)
                 .foregroundColor(.white)
                 .padding(.bottom, UICConstants.HIG.paddingSmall)
                 
-            
-            Text(Constants.tipText)
+            Text(UICConstants.Text.UsernamePage.tipText)
                 .font(.caption)
                 .foregroundColor(.gray)
         }
