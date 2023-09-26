@@ -9,22 +9,6 @@ import SwiftUI
 import ComposableArchitecture
 
 private enum Constants {
-    static let paddingSmall: CGFloat = 8
-    static let padding: CGFloat = 16
-    static let paddingMedium: CGFloat = 24
-    static let paddingLarge: CGFloat = 32
-    static let paddingLarge2: CGFloat = 48
-    static let paddingLargeExtra: CGFloat = 64
-    
-    static let cornerRadius: CGFloat = 12
-    static let strokeWidth: CGFloat = 1
-    
-    static let opacityBG: CGFloat = 0.1
-    static let opacityDisabled: CGFloat = 0.3
-    static let opacityFull: CGFloat = 1
-    
-    static let shapedButtonHeight: CGFloat = 50
-    
     static let actionText: String = "Enter your username"
     static let tipText: String = "Or you can use your email"
     static let usernameTFPlaceholder: String = "Username or email"

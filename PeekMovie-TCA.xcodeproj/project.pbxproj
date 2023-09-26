@@ -41,6 +41,7 @@
 		0792052E2AC2D52400F8216A /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0792052D2AC2D52400F8216A /* Icons.swift */; };
 		079205302AC2DEC100F8216A /* MainTextFieldButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0792052F2AC2DEC100F8216A /* MainTextFieldButton.swift */; };
 		079205322AC2DF6C00F8216A /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079205312AC2DF6C00F8216A /* SecondaryButton.swift */; };
+		079205342AC2E07B00F8216A /* TernaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079205332AC2E07B00F8216A /* TernaryButton.swift */; };
 		07F3143B2AA87CBB00B434ED /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F3143A2AA87CBB00B434ED /* PasswordView.swift */; };
 		07F3143D2AA87CFF00B434ED /* Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F3143C2AA87CFF00B434ED /* Password.swift */; };
 		07F314432AA8954200B434ED /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F314422AA8954200B434ED /* Registration.swift */; };
@@ -94,6 +95,7 @@
 		0792052D2AC2D52400F8216A /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		0792052F2AC2DEC100F8216A /* MainTextFieldButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextFieldButton.swift; sourceTree = "<group>"; };
 		079205312AC2DF6C00F8216A /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
+		079205332AC2E07B00F8216A /* TernaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TernaryButton.swift; sourceTree = "<group>"; };
 		07F3143A2AA87CBB00B434ED /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
 		07F3143C2AA87CFF00B434ED /* Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password.swift; sourceTree = "<group>"; };
 		07F314422AA8954200B434ED /* Registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 				079205292AC2D34700F8216A /* MainTextField.swift */,
 				0792052F2AC2DEC100F8216A /* MainTextFieldButton.swift */,
 				079205312AC2DF6C00F8216A /* SecondaryButton.swift */,
+				079205332AC2E07B00F8216A /* TernaryButton.swift */,
 			);
 			path = UICompoonents;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				0792052C2AC2D3AC00F8216A /* UICConstants.swift in Sources */,
 				076760272AA0D4360024E714 /* AdaptiveFrame.swift in Sources */,
 				07F314452AA8955800B434ED /* RegistrationView.swift in Sources */,
+				079205342AC2E07B00F8216A /* TernaryButton.swift in Sources */,
 				07F314432AA8954200B434ED /* Registration.swift in Sources */,
 				075155C02AA32CA000598BE8 /* Entrance.swift in Sources */,
 				07675FFD2AA0C6CA0024E714 /* ApplicationDelegate.swift in Sources */,
