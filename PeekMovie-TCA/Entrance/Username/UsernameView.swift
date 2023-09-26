@@ -29,7 +29,7 @@ private enum Constants {
     static let tipText: String = "Or you can use your email"
     static let usernameTFPlaceholder: String = "Username or email"
     
-    static let continueText: String = "Continue"
+    static let continueButtonText: String = "Continue"
     static let registerText: String = "Register"
 }
 
@@ -62,9 +62,10 @@ struct UsernameView: View {
                         Button {
                             viewStore.send(.view(.didTapOnContinue))
                         } label: {
-                            ContinueButton(
+                            MainButton(
                                 isPerformingPasswordCheck: viewStore.binding(get: \.isPerformingUsernameCheck, send: .view(.getValue)),
-                                isFetching: viewStore.binding(get: \.isFetching, send: .view(.getValue))
+                                isFetching: viewStore.binding(get: \.isFetching, send: .view(.getValue)),
+                                labelText: Constants.continueButtonText
                             )
                         }
                         .disabled(viewStore.isPerformingUsernameCheck)
@@ -132,28 +133,6 @@ private struct PeekLogo: View {
         }
         .padding(.top, Constants.paddingMedium)
         .padding(.bottom, Constants.paddingLarge)
-    }
-}
-
-private struct ContinueButton: View {
-    @Binding var isPerformingPasswordCheck: Bool
-    @Binding var isFetching: Bool
-    
-    var body: some View {
-        ZStack {
-            Text(Constants.continueText)
-                .foregroundColor(.black.opacity(isPerformingPasswordCheck ? Constants.opacityDisabled : Constants.opacityFull))
-                .frame(maxWidth: .infinity, maxHeight: Constants.shapedButtonHeight)
-                .background(.yellow.opacity(isPerformingPasswordCheck ? Constants.opacityDisabled : Constants.opacityFull))
-                .font(.headline.bold())
-                .cornerRadius(Constants.cornerRadius)
-                .padding(.horizontal, Constants.paddingLarge2)
-
-            if isFetching {
-                ProgressView()
-                    .tint(.white)
-            }
-        }
     }
 }
 

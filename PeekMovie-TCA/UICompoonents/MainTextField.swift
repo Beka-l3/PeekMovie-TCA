@@ -19,7 +19,6 @@ struct MainTextField: View {
             .placeholder(when: text.isEmpty) {
                 Text(placeholder).foregroundColor(.gray)
             }
-//            .textContentType(.password)
             .frame(maxWidth: .infinity)
             .padding()
             .background {
