@@ -8,15 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		073FDDCA2AA4A6FA00A263DF /* Username.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073FDDC92AA4A6FA00A263DF /* Username.swift */; };
-		073FDDCC2AA4AEBD00A263DF /* EntranceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073FDDCB2AA4AEBD00A263DF /* EntranceView.swift */; };
-		075155C02AA32CA000598BE8 /* Entrance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075155BF2AA32CA000598BE8 /* Entrance.swift */; };
 		075155C22AA32E0300598BE8 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075155C12AA32E0300598BE8 /* L10n.swift */; };
 		075155C42AA333FF00598BE8 /* String+EmptyString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075155C32AA333FF00598BE8 /* String+EmptyString.swift */; };
 		075155C72AA33CB300598BE8 /* UserClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075155C62AA33CB300598BE8 /* UserClient.swift */; };
 		075155C92AA35A7000598BE8 /* UsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075155C82AA35A7000598BE8 /* UsernameView.swift */; };
 		076330A62AB1AD6A00471FB8 /* View+placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076330A52AB1AD6A00471FB8 /* View+placeholder.swift */; };
 		07675FEA2AA0C0C20024E714 /* PeekMovieApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07675FE92AA0C0C20024E714 /* PeekMovieApplication.swift */; };
-		07675FEC2AA0C0C20024E714 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07675FEB2AA0C0C20024E714 /* ContentView.swift */; };
 		07675FEE2AA0C0C70024E714 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07675FED2AA0C0C70024E714 /* Assets.xcassets */; };
 		07675FF12AA0C0C70024E714 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07675FF02AA0C0C70024E714 /* Preview Assets.xcassets */; };
 		07675FFA2AA0C4450024E714 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 07675FF92AA0C4450024E714 /* ComposableArchitecture */; };
@@ -52,8 +49,6 @@
 
 /* Begin PBXFileReference section */
 		073FDDC92AA4A6FA00A263DF /* Username.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Username.swift; sourceTree = "<group>"; };
-		073FDDCB2AA4AEBD00A263DF /* EntranceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntranceView.swift; sourceTree = "<group>"; };
-		075155BF2AA32CA000598BE8 /* Entrance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entrance.swift; sourceTree = "<group>"; };
 		075155C12AA32E0300598BE8 /* L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
 		075155C32AA333FF00598BE8 /* String+EmptyString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+EmptyString.swift"; sourceTree = "<group>"; };
 		075155C62AA33CB300598BE8 /* UserClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClient.swift; sourceTree = "<group>"; };
@@ -61,7 +56,6 @@
 		076330A52AB1AD6A00471FB8 /* View+placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+placeholder.swift"; sourceTree = "<group>"; };
 		07675FE62AA0C0C20024E714 /* PeekMovie-TCA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PeekMovie-TCA.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		07675FE92AA0C0C20024E714 /* PeekMovieApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeekMovieApplication.swift; sourceTree = "<group>"; };
-		07675FEB2AA0C0C20024E714 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		07675FED2AA0C0C70024E714 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07675FF02AA0C0C70024E714 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		07675FFC2AA0C6CA0024E714 /* ApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDelegate.swift; sourceTree = "<group>"; };
@@ -155,7 +149,6 @@
 			isa = PBXGroup;
 			children = (
 				07675FE92AA0C0C20024E714 /* PeekMovieApplication.swift */,
-				07675FEB2AA0C0C20024E714 /* ContentView.swift */,
 				07675FFB2AA0C67D0024E714 /* Application */,
 				076760092AA0CDAB0024E714 /* Service */,
 				0767600E2AA0D20B0024E714 /* Utils */,
@@ -191,8 +184,6 @@
 		076760042AA0CC200024E714 /* Entrance */ = {
 			isa = PBXGroup;
 			children = (
-				075155BF2AA32CA000598BE8 /* Entrance.swift */,
-				073FDDCB2AA4AEBD00A263DF /* EntranceView.swift */,
 				073FDDC82AA4A6E600A263DF /* Username */,
 				07F314392AA87CA900B434ED /* Password */,
 				07F314402AA8951400B434ED /* Registration */,
@@ -404,7 +395,6 @@
 				076760082AA0CC4E0024E714 /* Splash.swift in Sources */,
 				076760112AA0D2280024E714 /* View+AdaptiveFont.swift in Sources */,
 				0767600B2AA0CDC70024E714 /* CountdownTimer.swift in Sources */,
-				073FDDCC2AA4AEBD00A263DF /* EntranceView.swift in Sources */,
 				076760132AA0D2670024E714 /* FontKind.swift in Sources */,
 				075155C22AA32E0300598BE8 /* L10n.swift in Sources */,
 				0767602D2AA0D5BA0024E714 /* View+OnFirstAppear.swift in Sources */,
@@ -419,7 +409,6 @@
 				07F314452AA8955800B434ED /* RegistrationView.swift in Sources */,
 				079205342AC2E07B00F8216A /* TernaryButton.swift in Sources */,
 				07F314432AA8954200B434ED /* Registration.swift in Sources */,
-				075155C02AA32CA000598BE8 /* Entrance.swift in Sources */,
 				07675FFD2AA0C6CA0024E714 /* ApplicationDelegate.swift in Sources */,
 				0792052E2AC2D52400F8216A /* Icons.swift in Sources */,
 				076330A62AB1AD6A00471FB8 /* View+placeholder.swift in Sources */,
@@ -427,7 +416,6 @@
 				075155C92AA35A7000598BE8 /* UsernameView.swift in Sources */,
 				0767602B2AA0D5040024E714 /* Assets.swift in Sources */,
 				079205302AC2DEC100F8216A /* MainTextFieldButton.swift in Sources */,
-				07675FEC2AA0C0C20024E714 /* ContentView.swift in Sources */,
 				076760012AA0C93D0024E714 /* ApplicationScreen.swift in Sources */,
 				07675FEA2AA0C0C20024E714 /* PeekMovieApplication.swift in Sources */,
 				0792052A2AC2D34700F8216A /* MainTextField.swift in Sources */,

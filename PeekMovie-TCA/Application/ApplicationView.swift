@@ -27,7 +27,7 @@ struct ApplicationView: View {
                         CaseLet(
                             /ApplicationScreen.State.entrance,
                              action: ApplicationScreen.Action.entrance,
-                             then: EntranceView.init
+                             then: Username.init
                         )
 //                    case .lobby:
 //                        CaseLet(

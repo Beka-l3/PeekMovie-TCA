@@ -19,7 +19,7 @@ struct ApplicationScreen: Reducer {
             return .none
         }
         .ifCaseLet(/State.entrance, action: /Action.entrance) {
-            Entrance()
+            Username()
         }
         .ifCaseLet(/State.splash, action: /Action.splash) {
             Splash()
@@ -30,7 +30,7 @@ struct ApplicationScreen: Reducer {
 extension ApplicationScreen {
     
     enum Action: Equatable, Sendable {
-        case entrance(Entrance.Action)
+        case entrance(Username.Action)
         case lobby
         case splash(Splash.Action)
     }
@@ -41,7 +41,7 @@ extension ApplicationScreen {
     
     enum State: Equatable, Identifiable, Sendable {
 
-        case entrance(Entrance.State)
+        case entrance(Username.State)
         case lobby
         case splash(Splash.State)
 
