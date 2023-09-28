@@ -30,7 +30,7 @@ struct Registration: Reducer {
                 
             case .view(.didTapOnRegister):
                 state.isFetching = true
-                print("\n\nStart Fetching password\n\n")
+                print("\n\nStart Fetching Registration\n\n")
                 return .run { send in
                     do {
                         try await Task.sleep(nanoseconds: 3 * UInt64(1e9))
@@ -39,6 +39,9 @@ struct Registration: Reducer {
                     }
                     await send(._private(.credentialsAreCorrect))
                 }
+                
+            case .view:
+                return .none
                 
             case ._private(.credentialsAreCorrect):
                 state.isFetching = false
@@ -82,7 +85,7 @@ extension Registration.Action {
         case didChangeEmail(String)
         case didChangePassword(String)
         case didTapOnRegister
-//        case getValue
+        case getValue
     }
 }
 
@@ -99,6 +102,7 @@ extension Registration.Action {
 
 extension Registration {
     struct State: Equatable, Sendable {
+        
         var username: String
         var email: String
         var password: String

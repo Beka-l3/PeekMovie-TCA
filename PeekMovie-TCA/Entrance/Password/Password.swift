@@ -84,6 +84,7 @@ extension Password.Action {
 
 extension Password {
     struct State: Equatable, Sendable {
+        
         let username: String
         var password: String
         

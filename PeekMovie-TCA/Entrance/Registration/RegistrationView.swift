@@ -10,15 +10,51 @@ import ComposableArchitecture
 
 struct RegistrationView: View {
     
+    private let store: StoreOf<Registration>
+    
     init(store: StoreOf<Registration>) {
-        
+        self.store = store
     }
     
     var body: some View {
-        ZStack {
-            Color(.brown)
-            
-            Text("Registration")
+        WithViewStore(store, observe: { $0 }) { viewStore in
+            ZStack {
+                Color(.black)
+                    .ignoresSafeArea()
+                
+                VStack(spacing: UICConstants.HIG.paddingMedium) {
+                    PeekIdView()
+                    
+                    MainTextField(
+                        text: viewStore.binding(get: \.username, send: { .view(.didChangeUsername($0)) } ),
+                        placeholder: UICConstants.Text.RegistrationPage.usernameTFPlaceholder
+                    )
+                    
+                    MainTextField(
+                        text: viewStore.binding(get: \.email, send: { .view(.didChangeEmail($0)) } ),
+                        placeholder: UICConstants.Text.RegistrationPage.emailTFPlaceholder
+                    )
+                    
+                    MainTextField(
+                        text: viewStore.binding(get: \.password, send: { .view(.didChangePassword($0)) } ),
+                        placeholder: UICConstants.Text.RegistrationPage.passwordTFPlaceholder
+                    )
+                    
+                    Spacer()
+                    
+                    Button {
+                        viewStore.send(.view(.didTapOnRegister))
+                    } label: {
+                        MainTextFieldButton(
+                            isPerformingPasswordCheck: viewStore.binding(get: \.isPerformingPasswordCheck, send: .view(.getValue)),
+                            isFetching: viewStore.binding(get: \.isFetching, send: .view(.getValue)),
+                            labelText: UICConstants.Text.RegistrationPage.registerButton
+                        )
+                    }
+                    .disabled(viewStore.isPerformingPasswordCheck)
+                    .padding(.bottom, UICConstants.HIG.paddingLargeExtra)
+                }
+            }
         }
     }
 }
@@ -34,7 +70,6 @@ struct RegistrationView_Previews: PreviewProvider {
 // MARK: - Components
 
 private struct PeekIdView: View {
-let username: String
     
     var body: some View {
         VStack {
