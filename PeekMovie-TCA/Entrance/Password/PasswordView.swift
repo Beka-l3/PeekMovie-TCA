@@ -35,7 +35,7 @@ struct PasswordView: View {
                     Button {
                         
                     } label: {
-                        TernaryButton(labelText: UICConstants.Text.PasswordPage.forgotButtonText)
+                        TernaryButton(labelText: UICConstants.Text.PasswordPage.forgotButton)
                     }
                     
                     Spacer()
@@ -74,7 +74,7 @@ private struct PeekIdView: View {
     var body: some View {
         VStack {
             HStack(spacing: UICConstants.HIG.paddingSmall) {
-                Text(UICConstants.Text.PasswordPage.idText)
+                Text(UICConstants.Text.PasswordPage.id)
                     .foregroundColor(.white)
                     .font(.title.bold())
                 
@@ -82,12 +82,12 @@ private struct PeekIdView: View {
             }
             .padding(.bottom, UICConstants.HIG.paddingLarge)
             
-            Text(UICConstants.Text.PasswordPage.actionText)
+            Text(UICConstants.Text.PasswordPage.action)
                 .font(.body)
                 .foregroundColor(.white)
                 .padding(.bottom, UICConstants.HIG.paddingSmall)
                 
-            Text(UICConstants.Text.PasswordPage.tipText)
+            Text(UICConstants.Text.PasswordPage.tip)
                 .font(.caption)
                 .foregroundColor(.gray)
                 

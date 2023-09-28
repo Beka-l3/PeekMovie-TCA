@@ -27,7 +27,33 @@ struct RegistrationView_Previews: PreviewProvider {
     static var previews: some View {
         RegistrationView(store: .init(initialState: Registration.State()) {
             Registration()
-        })
-                         
+        })        
+    }
+}
+
+// MARK: - Components
+
+private struct PeekIdView: View {
+let username: String
+    
+    var body: some View {
+        VStack {
+            HStack(spacing: UICConstants.HIG.paddingSmall) {
+                Text(UICConstants.Text.RegistrationPage.id)
+                    .foregroundColor(.white)
+                    .font(.title.bold())
+                
+                Icon.app(.x32)
+            }
+            .padding(.bottom, UICConstants.HIG.paddingLarge)
+            
+            Text(UICConstants.Text.RegistrationPage.action)
+                .font(.body)
+                .foregroundColor(.white)
+                .padding(.bottom, UICConstants.HIG.paddingSmall)
+                                
+        }
+        .padding(.top, UICConstants.HIG.paddingMedium)
+        .padding(.bottom, UICConstants.HIG.paddingLarge)
     }
 }

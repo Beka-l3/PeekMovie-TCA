@@ -53,7 +53,7 @@ struct UsernameView: View {
                         } label: {
                             SecondaryFetchingButton(
                                 isFetching: viewStore.binding(get: \.isFetching, send: .view(.getValue)),
-                                labelText: UICConstants.Text.UsernamePage.registerButtonText
+                                labelText: UICConstants.Text.UsernamePage.registerButton
                             )
                         }
                         .padding(.bottom, UICConstants.HIG.paddingLargeExtra)
@@ -100,12 +100,12 @@ private struct PeekLogo: View {
             Icon.app(.x128)
                 .padding(UICConstants.HIG.paddingMedium)
             
-            Text(UICConstants.Text.UsernamePage.actionText)
+            Text(UICConstants.Text.UsernamePage.action)
                 .font(.body)
                 .foregroundColor(.white)
                 .padding(.bottom, UICConstants.HIG.paddingSmall)
                 
-            Text(UICConstants.Text.UsernamePage.tipText)
+            Text(UICConstants.Text.UsernamePage.tip)
                 .font(.caption)
                 .foregroundColor(.gray)
         }

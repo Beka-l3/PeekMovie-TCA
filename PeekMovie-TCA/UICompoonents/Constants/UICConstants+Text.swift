@@ -15,20 +15,36 @@ extension UICConstants {
 
 extension UICConstants.Text {
     enum UsernamePage {
-        static let actionText: String = "Enter your username"
-        static let tipText: String = "Or you can use your email"
+        static let action: String = "Enter your username"
+        static let tip: String = "Or you can use your email"
+        
         static let usernamePlaceholder: String = "Username or email"
-        static let registerButtonText: String = "Register"
+        
+        static let registerButton: String = "Register"
     }
 }
 
 extension UICConstants.Text {
     enum PasswordPage {
-        static let idText: String = "id"
-        static let actionText: String = "Enter your password"
-        static let tipText: String = "Password for peek id with username"
+        static let id: String = "id"
+        static let action: String = "Enter your password"
+        static let tip: String = "Password for peek id with username"
+        
         static let passwordTFPlaceholder: String = "Password"
         
-        static let forgotButtonText: String = "I forgot my peek id password"
+        static let forgotButton: String = "I forgot my peek id password"
+    }
+}
+
+extension UICConstants.Text {
+    enum RegistrationPage {
+        static let id: String = "id"
+        static let action: String = "Register your Peek ID"
+        
+        static let usernameTFPlaceholder: String = "Username"
+        static let emailTFPlaceholder: String = "Email"
+        static let passwordTFPlaceholder: String = "Password"
+        
+        static let registerButton: String = "Register"
     }
 }

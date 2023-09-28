@@ -35,7 +35,7 @@ struct Password: Reducer {
                 
             case ._private(.passwordIsValid):
                 state.isFetching = false
-                print("\n\nFinish Fetching\n\n")
+                print("\n\nFinish Fetching Password\n\n")
                 return .none
                 
             default:
